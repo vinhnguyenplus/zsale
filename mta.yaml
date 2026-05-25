@@ -1,0 +1,50 @@
+_schema-version: '3.1'
+ID: zsale-northwind
+version: 1.0.0
+description: Enterprise SAP CAP Northwind Clone with HANA DB
+
+parameters:
+  enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx cds build --production
+        - node -e "require('fs').cpSync('app','gen/srv/app',{recursive:true})"
+
+modules:
+  # ---- CAP Server (Node.js) ----
+  - name: zsale-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      memory: 256M
+      disk-quota: 1024M
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: zsale-db
+
+  # ---- HANA DB Deployer ----
+  - name: zsale-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      memory: 256M
+      disk-quota: 1024M
+    requires:
+      - name: zsale-db
+
+resources:
+  # ---- HDI Container (HANA) ----
+  - name: zsale-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared

@@ -1,0 +1,19 @@
+COLUMN TABLE sap_cap_northwind_Products (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(36) NOT NULL,
+  productNumber INTEGER,
+  name NVARCHAR(100),
+  unitPrice DECIMAL(10, 2),
+  unitsInStock INTEGER,
+  unitsOnOrder INTEGER,
+  reorderLevel INTEGER,
+  discontinued BOOLEAN,
+  category_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_cap_northwind_Categories AS category ON (category.ID = category_ID),
+  MANY TO MANY JOIN sap_cap_northwind_OrderItems AS orderItems ON (orderItems.product_ID = ID)
+)

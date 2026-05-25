@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="NorthwindService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="author"/>
+            <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+          </Record>
+        </Collection>
+      </Annotation>
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="Products" EntityType="NorthwindService.Products">
+          <NavigationPropertyBinding Path="category" Target="Categories"/>
+          <NavigationPropertyBinding Path="orderItems" Target="OrderItems"/>
+        </EntitySet>
+        <EntitySet Name="Categories" EntityType="NorthwindService.Categories">
+          <NavigationPropertyBinding Path="products" Target="Products"/>
+        </EntitySet>
+        <EntitySet Name="Customers" EntityType="NorthwindService.Customers">
+          <NavigationPropertyBinding Path="orders" Target="Orders"/>
+        </EntitySet>
+        <EntitySet Name="Orders" EntityType="NorthwindService.Orders">
+          <NavigationPropertyBinding Path="customer" Target="Customers"/>
+          <NavigationPropertyBinding Path="items" Target="OrderItems"/>
+        </EntitySet>
+        <EntitySet Name="OrderItems" EntityType="NorthwindService.OrderItems">
+          <NavigationPropertyBinding Path="order" Target="Orders"/>
+          <NavigationPropertyBinding Path="product" Target="Products"/>
+        </EntitySet>
+      </EntityContainer>
+      <EntityType Name="Products">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="productNumber" Type="Edm.Int32"/>
+        <Property Name="name" Type="Edm.String" MaxLength="100"/>
+        <Property Name="unitPrice" Type="Edm.Decimal" Precision="10" Scale="2"/>
+        <Property Name="unitsInStock" Type="Edm.Int32"/>
+        <Property Name="unitsOnOrder" Type="Edm.Int32"/>
+        <Property Name="reorderLevel" Type="Edm.Int32"/>
+        <Property Name="discontinued" Type="Edm.Boolean"/>
+        <Property Name="isDeleted" Type="Edm.Boolean" DefaultValue="false"/>
+        <NavigationProperty Name="category" Type="NorthwindService.Categories" Partner="products">
+          <ReferentialConstraint Property="category_ID" ReferencedProperty="ID"/>
+        </NavigationProperty>
+        <Property Name="category_ID" Type="Edm.Guid"/>
+        <NavigationProperty Name="orderItems" Type="Collection(NorthwindService.OrderItems)" Partner="product"/>
+        <Property Name="criticality" Type="Edm.Int32"/>
+      </EntityType>
+      <EntityType Name="Categories">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="name" Type="Edm.String" MaxLength="100"/>
+        <Property Name="description" Type="Edm.String" MaxLength="500"/>
+        <Property Name="isDeleted" Type="Edm.Boolean" DefaultValue="false"/>
+        <NavigationProperty Name="products" Type="Collection(NorthwindService.Products)" Partner="category"/>
+      </EntityType>
+      <EntityType Name="Customers">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="customerID" Type="Edm.String" MaxLength="5"/>
+        <Property Name="companyName" Type="Edm.String" MaxLength="100"/>
+        <Property Name="contactName" Type="Edm.String" MaxLength="100"/>
+        <Property Name="contactTitle" Type="Edm.String" MaxLength="50"/>
+        <Property Name="address" Type="Edm.String" MaxLength="200"/>
+        <Property Name="city" Type="Edm.String" MaxLength="100"/>
+        <Property Name="postalCode" Type="Edm.String" MaxLength="20"/>
+        <Property Name="country" Type="Edm.String" MaxLength="100"/>
+        <Property Name="phone" Type="Edm.String" MaxLength="50"/>
+        <Property Name="email" Type="Edm.String" MaxLength="100"/>
+        <Property Name="status" Type="Edm.String" MaxLength="20" DefaultValue="active"/>
+        <Property Name="isDeleted" Type="Edm.Boolean" DefaultValue="false"/>
+        <NavigationProperty Name="orders" Type="Collection(NorthwindService.Orders)" Partner="customer"/>
+      </EntityType>
+      <EntityType Name="Orders">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="orderNumber" Type="Edm.Int32"/>
+        <Property Name="orderDate" Type="Edm.DateTimeOffset"/>
+        <Property Name="requiredDate" Type="Edm.DateTimeOffset"/>
+        <Property Name="shippedDate" Type="Edm.DateTimeOffset"/>
+        <Property Name="freight" Type="Edm.Decimal" Precision="10" Scale="2" DefaultValue="0"/>
+        <Property Name="employeeName" Type="Edm.String" MaxLength="100"/>
+        <Property Name="shipName" Type="Edm.String" MaxLength="100"/>
+        <Property Name="shipAddress" Type="Edm.String" MaxLength="200"/>
+        <Property Name="shipCity" Type="Edm.String" MaxLength="100"/>
+        <Property Name="shipCountry" Type="Edm.String" MaxLength="100"/>
+        <Property Name="status" Type="Edm.String" MaxLength="20" DefaultValue="NEW"/>
+        <Property Name="subtotal" Type="Edm.Decimal" Precision="12" Scale="2" DefaultValue="0"/>
+        <Property Name="tax" Type="Edm.Decimal" Precision="12" Scale="2" DefaultValue="0"/>
+        <Property Name="totalAmount" Type="Edm.Decimal" Precision="12" Scale="2" DefaultValue="0"/>
+        <Property Name="isDeleted" Type="Edm.Boolean" DefaultValue="false"/>
+        <NavigationProperty Name="customer" Type="NorthwindService.Customers" Partner="orders">
+          <ReferentialConstraint Property="customer_ID" ReferencedProperty="ID"/>
+        </NavigationProperty>
+        <Property Name="customer_ID" Type="Edm.Guid"/>
+        <NavigationProperty Name="items" Type="Collection(NorthwindService.OrderItems)" Partner="order">
+          <OnDelete Action="Cascade"/>
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="OrderItems">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="isDeleted" Type="Edm.Boolean" DefaultValue="false"/>
+        <NavigationProperty Name="order" Type="NorthwindService.Orders" Partner="items">
+          <ReferentialConstraint Property="order_ID" ReferencedProperty="ID"/>
+        </NavigationProperty>
+        <Property Name="order_ID" Type="Edm.Guid"/>
+        <NavigationProperty Name="product" Type="NorthwindService.Products" Partner="orderItems">
+          <ReferentialConstraint Property="product_ID" ReferencedProperty="ID"/>
+        </NavigationProperty>
+        <Property Name="product_ID" Type="Edm.Guid"/>
+        <Property Name="quantity" Type="Edm.Int32"/>
+        <Property Name="unitPrice" Type="Edm.Decimal" Precision="10" Scale="2"/>
+        <Property Name="discount" Type="Edm.Decimal" Precision="5" Scale="2" DefaultValue="0"/>
+      </EntityType>
+      <Annotations Target="NorthwindService.Products">
+        <Annotation Term="UI.HeaderInfo">
+          <Record Type="UI.HeaderInfoType">
+            <PropertyValue Property="TypeName" String="Product"/>
+            <PropertyValue Property="TypeNamePlural" String="Products"/>
+            <PropertyValue Property="Title">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="name"/>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="Description">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="category/name"/>
+              </Record>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.SelectionFields">
+          <Collection>
+            <PropertyPath>category_ID</PropertyPath>
+            <PropertyPath>name</PropertyPath>
+            <PropertyPath>discontinued</PropertyPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="name"/>
+              <PropertyValue Property="Label" String="Product Name"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="category_ID"/>
+              <PropertyValue Property="Label" String="Category"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="unitPrice"/>
+              <PropertyValue Property="Label" String="Unit Price"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="unitsInStock"/>
+              <PropertyValue Property="Label" String="Units In Stock"/>
+              <PropertyValue Property="Criticality" Path="criticality"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="unitsOnOrder"/>
+              <PropertyValue Property="Label" String="Units On Order"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="reorderLevel"/>
+              <PropertyValue Property="Label" String="Reorder Level"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="discontinued"/>
+              <PropertyValue Property="Label" String="Discontinued"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.CollectionFacet">
+              <PropertyValue Property="Label" String="Product Information"/>
+              <PropertyValue Property="ID" String="ProductGeneralInfo"/>
+              <PropertyValue Property="Facets">
+                <Collection>
+                  <Record Type="UI.ReferenceFacet">
+                    <PropertyValue Property="Label" String="General Details"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#General"/>
+                  </Record>
+                  <Record Type="UI.ReferenceFacet">
+                    <PropertyValue Property="Label" String="Inventory details"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Stock"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="General">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="name"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="category_ID"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="unitPrice"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="discontinued"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Stock">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="unitsInStock"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="unitsOnOrder"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="reorderLevel"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.EntityContainer/Products">
+        <Annotation Term="Core.OptimisticConcurrency">
+          <Collection/>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/createdAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/createdBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/modifiedAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/modifiedBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/ID">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/productNumber">
+        <Annotation Term="Common.Label" String="Product ID"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/name">
+        <Annotation Term="Common.Label" String="Product Name"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/unitPrice">
+        <Annotation Term="Common.Label" String="Unit Price"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/unitsInStock">
+        <Annotation Term="Common.Label" String="Units In Stock"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/unitsOnOrder">
+        <Annotation Term="Common.Label" String="Units On Order"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/reorderLevel">
+        <Annotation Term="Common.Label" String="Reorder Level"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/discontinued">
+        <Annotation Term="Common.Label" String="Discontinued"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/isDeleted">
+        <Annotation Term="Common.Label" String="Is Deleted"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/category">
+        <Annotation Term="Common.Label" String="Category"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/category_ID">
+        <Annotation Term="Common.Text" Path="category/name">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+        </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="CollectionPath" String="Categories"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="category_ID"/>
+                  <PropertyValue Property="ValueListProperty" String="ID"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="Common.Label" String="Category"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Products/criticality">
+        <Annotation Term="Core.Computed" Bool="true"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories">
+        <Annotation Term="UI.HeaderInfo">
+          <Record Type="UI.HeaderInfoType">
+            <PropertyValue Property="TypeName" String="Category"/>
+            <PropertyValue Property="TypeNamePlural" String="Categories"/>
+            <PropertyValue Property="Title">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="name"/>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="Description">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="description"/>
+              </Record>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="name"/>
+              <PropertyValue Property="Label" String="Category Name"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="description"/>
+              <PropertyValue Property="Label" String="Description"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.SelectionFields">
+          <Collection>
+            <PropertyPath>name</PropertyPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Label" String="Category Details"/>
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Details"/>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Label" String="Products in Category"/>
+              <PropertyValue Property="Target" AnnotationPath="products/@UI.LineItem"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Details">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="name"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="description"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.EntityContainer/Categories">
+        <Annotation Term="Core.OptimisticConcurrency">
+          <Collection/>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/createdAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/createdBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/modifiedAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/modifiedBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/ID">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/name">
+        <Annotation Term="Common.Label" String="Category Name"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/description">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Categories/isDeleted">
+        <Annotation Term="Common.Label" String="Is Deleted"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers">
+        <Annotation Term="UI.HeaderInfo">
+          <Record Type="UI.HeaderInfoType">
+            <PropertyValue Property="TypeName" String="Customer"/>
+            <PropertyValue Property="TypeNamePlural" String="Customers"/>
+            <PropertyValue Property="Title">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="companyName"/>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="Description">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="contactName"/>
+              </Record>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="companyName"/>
+              <PropertyValue Property="Label" String="Company Name"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="contactName"/>
+              <PropertyValue Property="Label" String="Contact Name"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="email"/>
+              <PropertyValue Property="Label" String="Email"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="status"/>
+              <PropertyValue Property="Label" String="Status"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="phone"/>
+              <PropertyValue Property="Label" String="Phone"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="city"/>
+              <PropertyValue Property="Label" String="City"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="country"/>
+              <PropertyValue Property="Label" String="Country"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.SelectionFields">
+          <Collection>
+            <PropertyPath>companyName</PropertyPath>
+            <PropertyPath>country</PropertyPath>
+            <PropertyPath>city</PropertyPath>
+            <PropertyPath>status</PropertyPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Label" String="Contact Information"/>
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Contact"/>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Label" String="Address Details"/>
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Address"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Contact">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="contactName"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="contactTitle"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="phone"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="email"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="status"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Address">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="companyName"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="address"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="city"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="postalCode"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="country"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.EntityContainer/Customers">
+        <Annotation Term="Core.OptimisticConcurrency">
+          <Collection/>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/createdAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/createdBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/modifiedAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/modifiedBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/ID">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/customerID">
+        <Annotation Term="Common.Label" String="Customer ID"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/companyName">
+        <Annotation Term="Common.Label" String="Company Name"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/contactName">
+        <Annotation Term="Common.Label" String="Contact Name"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/contactTitle">
+        <Annotation Term="Common.Label" String="Contact Title"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/address">
+        <Annotation Term="Common.Label" String="Address"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/city">
+        <Annotation Term="Common.Label" String="City"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/postalCode">
+        <Annotation Term="Common.Label" String="Postal Code"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/country">
+        <Annotation Term="Common.Label" String="Country"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/phone">
+        <Annotation Term="Common.Label" String="Phone"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/email">
+        <Annotation Term="Common.Label" String="Email"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/status">
+        <Annotation Term="Common.Label" String="Status"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Customers/isDeleted">
+        <Annotation Term="Common.Label" String="Is Deleted"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders">
+        <Annotation Term="UI.HeaderInfo">
+          <Record Type="UI.HeaderInfoType">
+            <PropertyValue Property="TypeName" String="Order"/>
+            <PropertyValue Property="TypeNamePlural" String="Orders"/>
+            <PropertyValue Property="Title">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="shipName"/>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="Description">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="orderDate"/>
+              </Record>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.SelectionFields">
+          <Collection>
+            <PropertyPath>customer_ID</PropertyPath>
+            <PropertyPath>orderDate</PropertyPath>
+            <PropertyPath>shipCountry</PropertyPath>
+            <PropertyPath>status</PropertyPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="customer_ID"/>
+              <PropertyValue Property="Label" String="Customer"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="orderDate"/>
+              <PropertyValue Property="Label" String="Order Date"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="status"/>
+              <PropertyValue Property="Label" String="Status"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="totalAmount"/>
+              <PropertyValue Property="Label" String="Total Amount"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="shippedDate"/>
+              <PropertyValue Property="Label" String="Shipped Date"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="freight"/>
+              <PropertyValue Property="Label" String="Freight Charge"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="shipName"/>
+              <PropertyValue Property="Label" String="Ship Name"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.CollectionFacet">
+              <PropertyValue Property="Label" String="Order Details"/>
+              <PropertyValue Property="ID" String="OrderDetailsCollection"/>
+              <PropertyValue Property="Facets">
+                <Collection>
+                  <Record Type="UI.ReferenceFacet">
+                    <PropertyValue Property="Label" String="Order Information"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#OrderGeneral"/>
+                  </Record>
+                  <Record Type="UI.ReferenceFacet">
+                    <PropertyValue Property="Label" String="Shipping Address"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#OrderShipping"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Label" String="Order Line Items"/>
+              <PropertyValue Property="Target" AnnotationPath="items/@UI.LineItem"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="OrderGeneral">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="customer_ID"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="orderDate"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="status"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="subtotal"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="tax"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="freight"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="totalAmount"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="OrderShipping">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="shipName"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="shipAddress"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="shipCity"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="shipCountry"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.EntityContainer/Orders">
+        <Annotation Term="Core.OptimisticConcurrency">
+          <Collection/>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/createdAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/createdBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/modifiedAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/modifiedBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/ID">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/orderNumber">
+        <Annotation Term="Common.Label" String="Order ID"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/orderDate">
+        <Annotation Term="Common.Label" String="Order Date"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/requiredDate">
+        <Annotation Term="Common.Label" String="Required Date"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/shippedDate">
+        <Annotation Term="Common.Label" String="Shipped Date"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/freight">
+        <Annotation Term="Common.Label" String="Freight"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/employeeName">
+        <Annotation Term="Common.Label" String="Employee Name"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/shipName">
+        <Annotation Term="Common.Label" String="Ship Name"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/shipAddress">
+        <Annotation Term="Common.Label" String="Ship Address"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/shipCity">
+        <Annotation Term="Common.Label" String="Ship City"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/shipCountry">
+        <Annotation Term="Common.Label" String="Ship Country"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/status">
+        <Annotation Term="Common.Label" String="Status"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/subtotal">
+        <Annotation Term="Common.Label" String="Subtotal"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/tax">
+        <Annotation Term="Common.Label" String="Tax"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/totalAmount">
+        <Annotation Term="Common.Label" String="Total Amount"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/isDeleted">
+        <Annotation Term="Common.Label" String="Is Deleted"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/customer">
+        <Annotation Term="Common.Label" String="Customer"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.Orders/customer_ID">
+        <Annotation Term="Common.Text" Path="customer/companyName">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+        </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="CollectionPath" String="Customers"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="customer_ID"/>
+                  <PropertyValue Property="ValueListProperty" String="ID"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="companyName"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="Common.Label" String="Customer"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems">
+        <Annotation Term="UI.HeaderInfo">
+          <Record Type="UI.HeaderInfoType">
+            <PropertyValue Property="TypeName" String="Item"/>
+            <PropertyValue Property="TypeNamePlural" String="Items"/>
+            <PropertyValue Property="Title">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="product/name"/>
+              </Record>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="product_ID"/>
+              <PropertyValue Property="Label" String="Product"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="quantity"/>
+              <PropertyValue Property="Label" String="Quantity"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="unitPrice"/>
+              <PropertyValue Property="Label" String="Unit Price"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="discount"/>
+              <PropertyValue Property="Label" String="Discount"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.EntityContainer/OrderItems">
+        <Annotation Term="Core.OptimisticConcurrency">
+          <Collection/>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/createdAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/createdBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/modifiedAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/modifiedBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/ID">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/isDeleted">
+        <Annotation Term="Common.Label" String="Is Deleted"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/order">
+        <Annotation Term="Common.Label" String="Order"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/order_ID">
+        <Annotation Term="Common.Label" String="Order"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/product">
+        <Annotation Term="Common.Label" String="Product"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/product_ID">
+        <Annotation Term="Common.Text" Path="product/name">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+        </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="CollectionPath" String="Products"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="product_ID"/>
+                  <PropertyValue Property="ValueListProperty" String="ID"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="unitPrice"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="Common.Label" String="Product"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/quantity">
+        <Annotation Term="Common.Label" String="Quantity"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/unitPrice">
+        <Annotation Term="Common.Label" String="Unit Price"/>
+      </Annotations>
+      <Annotations Target="NorthwindService.OrderItems/discount">
+        <Annotation Term="Common.Label" String="Discount"/>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

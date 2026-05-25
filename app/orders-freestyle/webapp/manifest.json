@@ -1,0 +1,100 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "sap.cap.northwind.orders.freestyle",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v2/northwind/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "sap.cap.northwind.orders.freestyle.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "appRoot"
+    },
+    "dependencies": {
+      "minUI5Version": "1.108.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "useBatch": true
+        }
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleUrl": "i18n/i18n.properties"
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "sap.cap.northwind.orders.freestyle.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "list",
+          "pattern": "",
+          "target": "list"
+        },
+        {
+          "name": "create",
+          "pattern": "Orders/new",
+          "target": "detail"
+        },
+        {
+          "name": "detail",
+          "pattern": "Orders/{orderId}",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "list": {
+          "viewName": "List",
+          "viewLevel": 1
+        },
+        "detail": {
+          "viewName": "Detail",
+          "viewLevel": 2
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  }
+}

@@ -1,0 +1,17 @@
+VIEW NorthwindService_OrderItems AS SELECT
+  OrderItems_0.createdAt,
+  OrderItems_0.createdBy,
+  OrderItems_0.modifiedAt,
+  OrderItems_0.modifiedBy,
+  OrderItems_0.ID,
+  OrderItems_0.isDeleted,
+  OrderItems_0.order_ID,
+  OrderItems_0.product_ID,
+  OrderItems_0.quantity,
+  OrderItems_0.unitPrice,
+  OrderItems_0.discount
+FROM sap_cap_northwind_OrderItems AS OrderItems_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN NorthwindService_Orders AS "ORDER" ON ("ORDER".ID = order_ID),
+  MANY TO ONE JOIN NorthwindService_Products AS "PRODUCT" ON ("PRODUCT".ID = product_ID)
+)

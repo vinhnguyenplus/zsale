@@ -1,0 +1,280 @@
+<mvc:View
+    controllerName="sap.cap.northwind.orders.freestyle.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        id="detailPage"
+        showHeader="false"
+        showFooter="true">
+
+        <!-- Custom Header -->
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Link text="&lt; Back" press="onNavBack" class="sapUiTinyMarginBegin" />
+                </contentLeft>
+                <contentRight>
+                    <Button text="Edit" type="Emphasized" press="onEdit"
+                        visible="{= !${stateModel>/editMode} &amp;&amp; !${stateModel>/isNew} }" />
+                    <Button text="Delete" type="Default" press="onDelete"
+                        visible="{= !${stateModel>/editMode} &amp;&amp; !${stateModel>/isNew} }" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+        <content>
+            <!-- Order Title -->
+            <VBox class="sapUiMediumMarginBegin sapUiSmallMarginTop">
+                <Title text="Order {orderNumber}" level="H3" titleStyle="H3" />
+            </VBox>
+
+            <!-- KPI Header Block -->
+            <HBox class="sapUiMediumMarginBeginEnd sapUiSmallMarginTop sapUiSmallMarginBottom" wrap="Wrap">
+                <VBox class="sapUiLargeMarginEnd">
+                    <Label text="Customer" design="Bold" class="sapUiTinyMarginBottom" />
+                    <Text text="{customer/customerID}" />
+                </VBox>
+                <VBox class="sapUiLargeMarginEnd">
+                    <Label text="Order Date" design="Bold" class="sapUiTinyMarginBottom" />
+                    <Text text="{
+                        path: 'orderDate',
+                        type: 'sap.ui.model.odata.type.DateTime',
+                        formatOptions: { pattern: 'dd/MM/yyyy' }
+                    }" />
+                </VBox>
+                <VBox class="sapUiLargeMarginEnd">
+                    <Label text="Status" design="Bold" class="sapUiTinyMarginBottom" />
+                    <Text text="{status}" />
+                </VBox>
+                <VBox>
+                    <Label text="Total Amount" design="Bold" class="sapUiTinyMarginBottom" />
+                    <ObjectNumber
+                        number="{
+                            path: 'totalAmount',
+                            type: 'sap.ui.model.type.Float',
+                            formatOptions: { maxFractionDigits: 2 }
+                        }"
+                        unit="USD"
+                        state="Success" />
+                </VBox>
+            </HBox>
+
+            <!-- Tab Bar -->
+            <IconTabBar id="iconTabBar" expandable="false" class="sapUiNoContentPadding">
+                <items>
+                    <!-- General Info Tab -->
+                    <IconTabFilter text="General Info" key="generalInfo">
+                        <VBox class="sapUiSmallMarginTop">
+                            <!-- General Information Section -->
+                            <Panel headerText="General Information" class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom">
+                                <content>
+                                    <l:Grid defaultSpan="L6 M6 S12" class="sapUiSmallMargin">
+                                        <!-- Row 1 -->
+                                        <VBox>
+                                            <Label text="Order ID" />
+                                            <Text text="{orderNumber}" visible="{= !${stateModel>/editMode} }" />
+                                            <Input value="{orderNumber}" visible="{stateModel>/editMode}" editable="false" />
+                                        </VBox>
+                                        <VBox>
+                                            <Label text="Employee" />
+                                            <Text text="{employeeName}" visible="{= !${stateModel>/editMode} }" />
+                                            <Input value="{employeeName}" visible="{stateModel>/editMode}" />
+                                        </VBox>
+                                        <!-- Row 2 -->
+                                        <VBox>
+                                            <Label text="Order Date" />
+                                            <Text text="{
+                                                path: 'orderDate',
+                                                type: 'sap.ui.model.odata.type.DateTime',
+                                                formatOptions: { pattern: 'dd/MM/yyyy' }
+                                            }" visible="{= !${stateModel>/editMode} }" />
+                                            <DatePicker
+                                                value="{
+                                                    path: 'orderDate',
+                                                    type: 'sap.ui.model.odata.type.DateTime',
+                                                    formatOptions: { pattern: 'dd/MM/yyyy' }
+                                                }"
+                                                displayFormat="dd/MM/yyyy"
+                                                visible="{stateModel>/editMode}" />
+                                        </VBox>
+                                        <VBox>
+                                            <Label text="Required Date" />
+                                            <Text text="{
+                                                path: 'requiredDate',
+                                                type: 'sap.ui.model.odata.type.DateTime',
+                                                formatOptions: { pattern: 'dd/MM/yyyy' }
+                                            }" visible="{= !${stateModel>/editMode} }" />
+                                            <DatePicker
+                                                value="{
+                                                    path: 'requiredDate',
+                                                    type: 'sap.ui.model.odata.type.DateTime',
+                                                    formatOptions: { pattern: 'dd/MM/yyyy' }
+                                                }"
+                                                displayFormat="dd/MM/yyyy"
+                                                visible="{stateModel>/editMode}" />
+                                        </VBox>
+                                        <!-- Row 3 -->
+                                        <VBox>
+                                            <Label text="Status" />
+                                            <Text text="{status}" visible="{= !${stateModel>/editMode} }" />
+                                            <ComboBox selectedKey="{status}" visible="{stateModel>/editMode}">
+                                                <core:Item key="NEW" text="NEW" />
+                                                <core:Item key="PROCESSING" text="PROCESSING" />
+                                                <core:Item key="COMPLETED" text="COMPLETED" />
+                                                <core:Item key="CANCELLED" text="CANCELLED" />
+                                            </ComboBox>
+                                        </VBox>
+                                        <VBox>
+                                            <Label text="Freight" />
+                                            <Text text="{freight} USD" visible="{= !${stateModel>/editMode} }" />
+                                            <Input value="{freight}" type="Number" visible="{stateModel>/editMode}" />
+                                        </VBox>
+                                        <!-- Row 4 -->
+                                        <VBox>
+                                            <Label text="Subtotal" />
+                                            <Text text="{subtotal} USD" />
+                                        </VBox>
+                                        <VBox>
+                                            <Label text="Tax (10%)" />
+                                            <Text text="{tax} USD" />
+                                        </VBox>
+                                        <VBox>
+                                            <Label text="Total Amount" />
+                                            <Text text="{totalAmount} USD" />
+                                        </VBox>
+                                    </l:Grid>
+                                </content>
+                            </Panel>
+
+                            <!-- Items Component Section -->
+                            <Panel class="sapUiSmallMarginBeginEnd">
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <content>
+                                            <Title text="Items Component" />
+                                            <ToolbarSpacer />
+                                            <Button text="Add Item" type="Default" press="onAddItem" visible="{stateModel>/editMode}" />
+                                            <Button text="Delete" type="Reject" press="onDeleteItems" visible="{stateModel>/editMode}" />
+                                        </content>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <content>
+                                    <Table
+                                        id="itemsTable"
+                                        items="{
+                                            path: 'items',
+                                            parameters: {
+                                                expand: 'product'
+                                            }
+                                        }"
+                                        mode="{= ${stateModel>/editMode} ? 'MultiSelect' : 'None' }"
+                                        updateFinished="onItemsTableUpdateFinished">
+                                        <columns>
+                                            <Column width="12%">
+                                                <Text text="Product ID" />
+                                            </Column>
+                                            <Column width="30%">
+                                                <Text text="Product Name" />
+                                            </Column>
+                                            <Column width="18%" hAlign="Right">
+                                                <Text text="Unit Price" />
+                                            </Column>
+                                            <Column width="15%" hAlign="Right">
+                                                <Text text="Quantity" />
+                                            </Column>
+                                            <Column width="15%" hAlign="Right">
+                                                <Text text="Discount" />
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem>
+                                                <cells>
+                                                    <Text text="{product/productNumber}" />
+                                                    <Link text="{product/name}" />
+                                                    <Text text="{
+                                                        path: 'unitPrice',
+                                                        type: 'sap.ui.model.type.Float',
+                                                        formatOptions: { maxFractionDigits: 2 }
+                                                    } USD" />
+                                                    <Text text="{quantity}" />
+                                                    <Text text="{
+                                                        path: 'discount',
+                                                        type: 'sap.ui.model.type.Float',
+                                                        formatOptions: { maxFractionDigits: 2 }
+                                                    } %" />
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </content>
+                            </Panel>
+                        </VBox>
+                    </IconTabFilter>
+
+                    <!-- Order Items Tab -->
+                    <IconTabFilter id="orderItemsTab" text="Order Items" key="orderItems">
+                        <Table
+                            id="itemsTableTab2"
+                            items="{
+                                path: 'items',
+                                parameters: {
+                                    expand: 'product'
+                                }
+                            }">
+                            <columns>
+                                <Column width="12%">
+                                    <Text text="Product ID" />
+                                </Column>
+                                <Column width="30%">
+                                    <Text text="Product Name" />
+                                </Column>
+                                <Column width="18%" hAlign="Right">
+                                    <Text text="Unit Price" />
+                                </Column>
+                                <Column width="15%" hAlign="Right">
+                                    <Text text="Quantity" />
+                                </Column>
+                                <Column width="15%" hAlign="Right">
+                                    <Text text="Discount" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{product/productNumber}" />
+                                        <Link text="{product/name}" />
+                                        <Text text="{
+                                            path: 'unitPrice',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: { maxFractionDigits: 2 }
+                                        } USD" />
+                                        <Text text="{quantity}" />
+                                        <Text text="{
+                                            path: 'discount',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: { maxFractionDigits: 2 }
+                                        } %" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+
+        <!-- Footer with Save/Cancel -->
+        <footer>
+            <Bar visible="{stateModel>/editMode}">
+                <contentRight>
+                    <Button text="Save" type="Emphasized" press="onSave" />
+                    <Button text="Cancel" type="Default" press="onCancel" />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

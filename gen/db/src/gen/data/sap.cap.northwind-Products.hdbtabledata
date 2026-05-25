@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_CAP_NORTHWIND_PRODUCTS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.cap.northwind-Products.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "CREATEDAT",
+          "CREATEDBY",
+          "MODIFIEDAT",
+          "MODIFIEDBY",
+          "PRODUCTNUMBER",
+          "NAME",
+          "UNITPRICE",
+          "UNITSINSTOCK",
+          "UNITSONORDER",
+          "REORDERLEVEL",
+          "DISCONTINUED",
+          "ISDELETED",
+          "CATEGORY_ID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "CREATEDAT": "createdAt",
+        "CREATEDBY": "createdBy",
+        "MODIFIEDAT": "modifiedAt",
+        "MODIFIEDBY": "modifiedBy",
+        "PRODUCTNUMBER": "productNumber",
+        "NAME": "name",
+        "UNITPRICE": "unitPrice",
+        "UNITSINSTOCK": "unitsInStock",
+        "UNITSONORDER": "unitsOnOrder",
+        "REORDERLEVEL": "reorderLevel",
+        "DISCONTINUED": "discontinued",
+        "ISDELETED": "isDeleted",
+        "CATEGORY_ID": "category_ID"
+      }
+    }
+  ]
+}

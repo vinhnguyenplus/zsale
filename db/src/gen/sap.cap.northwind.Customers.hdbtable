@@ -1,0 +1,15 @@
+COLUMN TABLE sap_cap_northwind_Customers (
+  ID NVARCHAR(36) NOT NULL,
+  customerID NVARCHAR(5),
+  companyName NVARCHAR(100),
+  contactName NVARCHAR(100),
+  contactTitle NVARCHAR(50),
+  address NVARCHAR(200),
+  city NVARCHAR(100),
+  postalCode NVARCHAR(20),
+  country NVARCHAR(100),
+  phone NVARCHAR(50),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN sap_cap_northwind_Orders AS orders ON (orders.customer_ID = ID)
+)

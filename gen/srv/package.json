@@ -1,0 +1,58 @@
+{
+  "name": "zsale-northwind",
+  "version": "1.0.0",
+  "description": "Enterprise-style SAP CAP + Fiori Elements Northwind Clone with OData V2",
+  "repository": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "@cap-js-community/odata-v2-adapter": "^1.12.8",
+    "@sap/xssec": "^4",
+    "passport": "^0.7",
+    "express": "^4.21.1",
+    "sqlite3": "^5.1.7",
+    "hdb": "^0.19.8"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^8",
+    "@sap/hdi-deploy": "^4"
+  },
+  "scripts": {
+    "seed": "node scripts/seed.js",
+    "deploy": "npx cds deploy",
+    "build": "npx cds build --production",
+    "deploy:hana": "npx cds deploy --to hana",
+    "build:mta": "npx mbt build",
+    "deploy:cf": "cf deploy mta_archives/zsale-northwind_1.0.0.mtar",
+    "watch": "npx cds watch",
+    "start": "npx cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "[development]": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "db-active.sqlite"
+          }
+        },
+        "[production]": {
+          "kind": "hana",
+          "impl": "@sap/cds/libx/_runtime/hana/Service.js"
+        }
+      },
+      "auth": {
+        "[development]": { "kind": "mocked" },
+        "[production]": { "kind": "dummy" }
+      }
+    },
+    "build": {
+      "target": "gen",
+      "tasks": [
+        { "for": "hana", "src": "db", "options": { "model": ["db", "srv"] } },
+        { "for": "node-cf", "src": "srv" }
+      ]
+    }
+  }
+}

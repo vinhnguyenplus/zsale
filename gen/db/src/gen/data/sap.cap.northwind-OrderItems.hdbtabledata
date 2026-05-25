@@ -1,0 +1,45 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_CAP_NORTHWIND_ORDERITEMS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.cap.northwind-OrderItems.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "CREATEDAT",
+          "CREATEDBY",
+          "MODIFIEDAT",
+          "MODIFIEDBY",
+          "ISDELETED",
+          "ORDER_ID",
+          "PRODUCT_ID",
+          "QUANTITY",
+          "UNITPRICE",
+          "DISCOUNT"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "CREATEDAT": "createdAt",
+        "CREATEDBY": "createdBy",
+        "MODIFIEDAT": "modifiedAt",
+        "MODIFIEDBY": "modifiedBy",
+        "ISDELETED": "isDeleted",
+        "ORDER_ID": "order_ID",
+        "PRODUCT_ID": "product_ID",
+        "QUANTITY": "quantity",
+        "UNITPRICE": "unitPrice",
+        "DISCOUNT": "discount"
+      }
+    }
+  ]
+}

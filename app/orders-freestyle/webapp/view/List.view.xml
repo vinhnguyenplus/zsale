@@ -1,0 +1,156 @@
+<mvc:View
+    controllerName="sap.cap.northwind.orders.freestyle.controller.List"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page showHeader="true" title="SAP | Manage Orders">
+        <content>
+            <!-- Title block -->
+            <VBox class="sapUiMediumMarginBegin sapUiSmallMarginTop sapUiTinyMarginBottom">
+                <Title text="Orders" level="H1" titleStyle="H1" />
+            </VBox>
+
+            <!-- Filter Bar Section -->
+            <HBox wrap="Wrap" justifyContent="SpaceBetween" alignItems="End" class="sapUiMediumMarginBeginEnd sapUiSmallMarginBottom">
+                <HBox wrap="Wrap">
+                    <!-- Order ID Filter -->
+                    <VBox class="sapUiSmallMarginEnd">
+                        <Label text="Order ID" labelFor="filterOrderId" class="sapUiTinyMarginBottom" />
+                        <ComboBox
+                            id="filterOrderId"
+                            placeholder="Chọn Order ID"
+                            items="{
+                                path: '/Orders',
+                                sorter: { path: 'orderNumber', descending: false },
+                                length: 200
+                            }">
+                            <core:Item key="{orderNumber}" text="{orderNumber}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- Customer Filter -->
+                    <VBox class="sapUiSmallMarginEnd">
+                        <Label text="Customer" labelFor="filterCustomer" class="sapUiTinyMarginBottom" />
+                        <ComboBox
+                            id="filterCustomer"
+                            placeholder="Tất cả"
+                            items="{
+                                path: '/Customers',
+                                sorter: { path: 'customerID', descending: false },
+                                length: 200
+                            }">
+                            <core:Item key="{customerID}" text="{customerID} - {companyName}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- Order Date Filter -->
+                    <VBox class="sapUiSmallMarginEnd">
+                        <Label text="Order Date" labelFor="filterOrderDate" class="sapUiTinyMarginBottom" />
+                        <DatePicker
+                            id="filterOrderDate"
+                            placeholder="DD/MM/YYYY"
+                            displayFormat="dd/MM/yyyy"
+                            valueFormat="yyyy-MM-dd" />
+                    </VBox>
+                </HBox>
+
+                <!-- Filter Actions -->
+                <HBox class="sapUiTinyMarginBottom">
+                    <Button text="Adapt Filters" type="Transparent" press="onAdaptFilters" class="sapUiTinyMarginEnd" />
+                    <Button text="Go" type="Emphasized" press="onSearch" />
+                </HBox>
+            </HBox>
+
+            <!-- Orders Table Section -->
+            <VBox class="sapUiMediumMarginBeginEnd">
+                <Table
+                    id="ordersTable"
+                    items="{
+                        path: '/Orders',
+                        sorter: {
+                            path: 'orderNumber',
+                            descending: false
+                        },
+                        parameters: {
+                            expand: 'customer'
+                        }
+                    }"
+                    mode="MultiSelect"
+                    growing="true"
+                    growingThreshold="20"
+                    growingScrollToLoad="false"
+                    updateFinished="onTableUpdateFinished"
+                    class="sapUiSizeCompact">
+                    
+                    <!-- Table Toolbar -->
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <Title id="tableTitle" text="Orders (0)" />
+                                <ToolbarSpacer />
+                                <Button text="Create" type="Emphasized" press="onCreateOrder" />
+                                <Button text="Delete" type="Reject" press="onDeleteOrders" />
+                                <Button icon="sap-icon://action-settings" type="Transparent" press="onTableSettings" />
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <!-- Table Columns -->
+                    <columns>
+                        <Column width="12%">
+                            <Text text="Order ID" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Customer ID" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Order Date" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Shipped Date" />
+                        </Column>
+                        <Column width="15%" hAlign="Right">
+                            <Text text="Freight" />
+                        </Column>
+                        <Column width="12%" hAlign="Center">
+                            <Text text="Status" />
+                        </Column>
+                        <Column width="5%">
+                        </Column>
+                    </columns>
+
+                    <!-- Table Rows -->
+                    <items>
+                        <ColumnListItem type="Navigation" press="onRowPress">
+                            <cells>
+                                <Link text="{orderNumber}" press="onOrderLinkPress" />
+                                <Text text="{customer/customerID}" />
+                                <Text text="{
+                                    path: 'orderDate',
+                                    type: 'sap.ui.model.odata.type.DateTime',
+                                    formatOptions: { pattern: 'dd/MM/yyyy' }
+                                }" />
+                                <Text text="{
+                                    path: 'shippedDate',
+                                    type: 'sap.ui.model.odata.type.DateTime',
+                                    formatOptions: { pattern: 'dd/MM/yyyy' }
+                                }" />
+                                <Text text="{
+                                    path: 'freight',
+                                    type: 'sap.ui.model.type.Float',
+                                    formatOptions: {
+                                        maxFractionDigits: 2
+                                    }
+                                } USD" />
+                                <ObjectStatus
+                                    text="{= ${shippedDate} ? 'Shipped' : 'Pending' }"
+                                    state="{= ${shippedDate} ? 'Error' : 'Warning' }" />
+                                <core:Icon src="sap-icon://navigation-right-arrow" size="1rem" color="#bbb" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

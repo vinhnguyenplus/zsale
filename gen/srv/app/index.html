@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAP CAP + Fiori Elements Northwind Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: rgba(255, 255, 255, 0.03);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent-blue: #3b82f6;
+      --accent-teal: #14b8a6;
+      --accent-purple: #a855f7;
+      --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      --glass-glow: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 50%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+    }
+
+    header {
+      padding: 3rem 2rem 1.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal));
+      border-radius: 2px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0.5rem auto 0 auto;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--accent-blue);
+      border-radius: 2px;
+    }
+
+    /* GRID FOR APPLICATIONS */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: var(--glass-glow);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.3);
+      box-shadow: 0 12px 40px 0 rgba(59, 130, 246, 0.1);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .products-card .card-icon {
+      color: var(--accent-teal);
+      text-shadow: 0 0 10px rgba(20, 184, 166, 0.3);
+    }
+
+    .orders-card .card-icon {
+      color: var(--accent-purple);
+      text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-description {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      gap: 0.5rem;
+    }
+
+    .products-card .card-btn:hover {
+      background: var(--accent-teal);
+      border-color: var(--accent-teal);
+      box-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
+      color: #0b0f19;
+    }
+
+    .orders-card .card-btn:hover {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+      color: #0b0f19;
+    }
+
+    .orders-freestyle-card .card-icon {
+      color: var(--accent-blue);
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    }
+
+    .orders-freestyle-card .card-btn:hover {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+      color: #0b0f19;
+    }
+
+    /* ENDPOINTS & DOCUMENTATION */
+    .info-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .info-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .info-panel {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .endpoint-list {
+      list-style: none;
+    }
+
+    .endpoint-item {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .endpoint-item:last-child {
+      border-bottom: none;
+    }
+
+    .endpoint-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .endpoint-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .badge-v2 {
+      background: rgba(20, 184, 166, 0.1);
+      color: var(--accent-teal);
+      border: 1px solid rgba(20, 184, 166, 0.3);
+    }
+
+    .badge-v4 {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .endpoint-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .endpoint-link {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .endpoint-link:hover {
+      color: var(--accent-blue);
+    }
+
+    /* CODE SNIPPETS */
+    .code-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      margin-top: 0.8rem;
+    }
+
+    .code-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      color: var(--text-main);
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      margin-top: 5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Enterprise Northwind Ecosystem</h1>
+    <p class="subtitle">SAP CAP + SAP Fiori Elements (OData V2) high-performance sandbox populated with 50,000 corporate records.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="section-title">Fiori Applications</h2>
+      <div class="app-grid">
+        <!-- Products Fiori App -->
+        <div class="card products-card">
+          <div class="card-icon">📦</div>
+          <h3 class="card-title">Manage Products</h3>
+          <p class="card-description">
+            Maintain item inventory, price definitions, and reorder levels. Built with SAP Fiori Elements List Report & Object Page, featuring live criticality indicators based on stock levels and Category value help.
+          </p>
+          <a href="/products/webapp/index.html" target="_blank" class="card-btn">
+            Launch Application <span>→</span>
+          </a>
+        </div>
+
+        <!-- Orders Fiori App -->
+        <div class="card orders-card">
+          <div class="card-icon">🛒</div>
+          <h3 class="card-title">Order Processing</h3>
+          <p class="card-description">
+            Track business orders and manage line-item composition. Supports complete draft creation and customer reference associations, using the transactional draft framework in a multi-step Fiori Object Page flow.
+          </p>
+          <a href="/orders/webapp/index.html" target="_blank" class="card-btn">
+            Launch Application <span>→</span>
+          </a>
+        </div>
+
+        <!-- Orders Freestyle Fiori App -->
+        <div class="card orders-freestyle-card">
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">Order Processing (Freestyle)</h3>
+          <p class="card-description">
+            Custom UI5 Freestyle master-detail layout mapping customer attributes and associated line-items. Operates with virtualized list scrolling and search operators directly on OData V2.
+          </p>
+          <a href="/orders-freestyle/webapp/index.html" target="_blank" class="card-btn">
+            Launch Application <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="info-container">
+      <!-- ODATA ENDPOINTS -->
+      <section class="info-panel">
+        <h2 class="section-title">OData Services</h2>
+        <ul class="endpoint-list">
+          <li class="endpoint-item">
+            <div class="endpoint-meta">
+              <span class="endpoint-name">Service Document</span>
+              <div>
+                <span class="badge badge-v2">OData V2</span>
+                <span class="badge badge-v4">OData V4</span>
+              </div>
+            </div>
+            <div class="endpoint-links">
+              <a class="endpoint-link" href="/odata/v2/northwind" target="_blank">V2 Service Endpoint</a>
+              <a class="endpoint-link" href="/odata/v4/northwind" target="_blank">V4 Service Endpoint</a>
+            </div>
+          </li>
+          <li class="endpoint-item">
+            <div class="endpoint-meta">
+              <span class="endpoint-name">Products ($count & paging)</span>
+            </div>
+            <div class="endpoint-links">
+              <a class="endpoint-link" href="/odata/v2/northwind/Products/$count" target="_blank">V2 $count</a>
+              <a class="endpoint-link" href="/odata/v2/northwind/Products?$top=5&$skip=10" target="_blank">V2 Paging</a>
+              <a class="endpoint-link" href="/odata/v4/northwind/Products?$top=5" target="_blank">V4 Top 5</a>
+            </div>
+          </li>
+          <li class="endpoint-item">
+            <div class="endpoint-meta">
+              <span class="endpoint-name">Orders ($expand Composition)</span>
+            </div>
+            <div class="endpoint-links">
+              <a class="endpoint-link" href="/odata/v2/northwind/Orders?$top=5&$expand=customer,items" target="_blank">V2 Expand Items</a>
+              <a class="endpoint-link" href="/odata/v4/northwind/Orders?$top=5&$expand=customer,items" target="_blank">V4 Expand Items</a>
+            </div>
+          </li>
+          <li class="endpoint-item">
+            <div class="endpoint-meta">
+              <span class="endpoint-name">Categories & Customers</span>
+            </div>
+            <div class="endpoint-links">
+              <a class="endpoint-link" href="/odata/v2/northwind/Categories" target="_blank">V2 Categories</a>
+              <a class="endpoint-link" href="/odata/v2/northwind/Customers" target="_blank">V2 Customers</a>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PERFORMANCE TEST RUNNER -->
+      <section class="info-panel">
+        <h2 class="section-title">Sandbox Query Sandbox</h2>
+        <p class="card-description" style="margin-bottom: 1rem;">
+          Use these query structures to execute performance tests against the 10,000 records index system:
+        </p>
+
+        <div class="code-title">1. Server-side search & filtering:</div>
+        <div class="code-box">
+          GET /odata/v2/northwind/Products?$filter=substringof('Chef', name) and unitPrice gt 20
+        </div>
+
+        <div class="code-title">2. Combined Expand, Filter, Order & Paging:</div>
+        <div class="code-box">
+          GET /odata/v2/northwind/Orders?$top=10&$skip=20&$filter=shipCountry eq 'Germany'&$expand=customer,items&$orderby=orderDate desc
+        </div>
+
+        <div class="code-title">3. Raw Category Selection:</div>
+        <div class="code-box">
+          GET /odata/v2/northwind/Categories?$filter=substringof('Organic', name)&$inlinecount=allpages
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>SAP Cloud Application Programming Model sandbox. Local DB: SQLite (indexed).</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+VIEW NorthwindService_Customers AS SELECT
+  Customers_0.createdAt,
+  Customers_0.createdBy,
+  Customers_0.modifiedAt,
+  Customers_0.modifiedBy,
+  Customers_0.ID,
+  Customers_0.customerID,
+  Customers_0.companyName,
+  Customers_0.contactName,
+  Customers_0.contactTitle,
+  Customers_0.address,
+  Customers_0.city,
+  Customers_0.postalCode,
+  Customers_0.country,
+  Customers_0.phone,
+  Customers_0.email,
+  Customers_0.status,
+  Customers_0.isDeleted
+FROM sap_cap_northwind_Customers AS Customers_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN NorthwindService_Orders AS orders ON (orders.customer_ID = ID)
+)

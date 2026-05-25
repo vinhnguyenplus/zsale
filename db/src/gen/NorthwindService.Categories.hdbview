@@ -1,0 +1,8 @@
+VIEW NorthwindService_Categories AS SELECT
+  Categories_0.ID,
+  Categories_0.name,
+  Categories_0.description
+FROM sap_cap_northwind_Categories AS Categories_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN NorthwindService_Products AS products ON (products.category_ID = ID)
+)

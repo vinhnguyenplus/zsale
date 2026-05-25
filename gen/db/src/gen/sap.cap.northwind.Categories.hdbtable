@@ -1,0 +1,13 @@
+COLUMN TABLE sap_cap_northwind_Categories (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(36) NOT NULL,
+  name NVARCHAR(100),
+  description NVARCHAR(500),
+  isDeleted BOOLEAN DEFAULT FALSE,
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN sap_cap_northwind_Products AS products ON (products.category_ID = ID)
+)

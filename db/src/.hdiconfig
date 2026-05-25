@@ -1,0 +1,36 @@
+{
+  "file_suffixes": {
+    "hdbtable": {
+      "plugin_name": "com.sap.hana.di.table",
+      "plugin_version": "4.0.0.0"
+    },
+    "hdbview": {
+      "plugin_name": "com.sap.hana.di.view",
+      "plugin_version": "4.0.0.0"
+    },
+    "hdbcds": {
+      "plugin_name": "com.sap.hana.di.cds",
+      "plugin_version": "4.0.0.0"
+    },
+    "hdbconstraint": {
+      "plugin_name": "com.sap.hana.di.constraint",
+      "plugin_version": "4.0.0.0"
+    },
+    "hdbtabledata": {
+      "plugin_name": "com.sap.hana.di.tabledata",
+      "plugin_version": "4.0.0.0"
+    },
+    "csv": {
+      "plugin_name": "com.sap.hana.di.tabledata.source",
+      "plugin_version": "4.0.0.0"
+    },
+    "hdbsequence": {
+      "plugin_name": "com.sap.hana.di.sequence",
+      "plugin_version": "4.0.0.0"
+    },
+    "hdbindex": {
+      "plugin_name": "com.sap.hana.di.index",
+      "plugin_version": "4.0.0.0"
+    }
+  }
+}

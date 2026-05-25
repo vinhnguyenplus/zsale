@@ -1,0 +1,22 @@
+COLUMN TABLE sap_cap_northwind_Orders (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(36) NOT NULL,
+  orderNumber INTEGER,
+  orderDate SECONDDATE,
+  requiredDate SECONDDATE,
+  shippedDate SECONDDATE,
+  freight DECIMAL(10, 2),
+  employeeName NVARCHAR(100),
+  shipName NVARCHAR(100),
+  shipAddress NVARCHAR(200),
+  shipCity NVARCHAR(100),
+  shipCountry NVARCHAR(100),
+  customer_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_cap_northwind_Customers AS customer ON (customer.ID = customer_ID),
+  MANY TO MANY JOIN sap_cap_northwind_OrderItems AS items ON (items.order_ID = ID)
+)

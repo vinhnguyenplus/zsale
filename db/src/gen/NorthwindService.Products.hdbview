@@ -1,0 +1,20 @@
+VIEW NorthwindService_Products AS SELECT
+  Products_0.createdAt,
+  Products_0.createdBy,
+  Products_0.modifiedAt,
+  Products_0.modifiedBy,
+  Products_0.ID,
+  Products_0.productNumber,
+  Products_0.name,
+  Products_0.unitPrice,
+  Products_0.unitsInStock,
+  Products_0.unitsOnOrder,
+  Products_0.reorderLevel,
+  Products_0.discontinued,
+  Products_0.category_ID,
+  CASE WHEN Products_0.unitsInStock <= Products_0.reorderLevel THEN 1 WHEN Products_0.unitsInStock > Products_0.reorderLevel AND Products_0.unitsInStock < (Products_0.reorderLevel + 10) THEN 2 ELSE 3 END AS criticality
+FROM sap_cap_northwind_Products AS Products_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN NorthwindService_Categories AS category ON (category.ID = category_ID),
+  MANY TO MANY JOIN NorthwindService_OrderItems AS orderItems ON (orderItems.product_ID = ID)
+)

@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_CAP_NORTHWIND_CUSTOMERS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.cap.northwind-Customers.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "CREATEDAT",
+          "CREATEDBY",
+          "MODIFIEDAT",
+          "MODIFIEDBY",
+          "CUSTOMERID",
+          "COMPANYNAME",
+          "CONTACTNAME",
+          "CONTACTTITLE",
+          "ADDRESS",
+          "CITY",
+          "POSTALCODE",
+          "COUNTRY",
+          "PHONE",
+          "EMAIL",
+          "STATUS",
+          "ISDELETED"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "CREATEDAT": "createdAt",
+        "CREATEDBY": "createdBy",
+        "MODIFIEDAT": "modifiedAt",
+        "MODIFIEDBY": "modifiedBy",
+        "CUSTOMERID": "customerID",
+        "COMPANYNAME": "companyName",
+        "CONTACTNAME": "contactName",
+        "CONTACTTITLE": "contactTitle",
+        "ADDRESS": "address",
+        "CITY": "city",
+        "POSTALCODE": "postalCode",
+        "COUNTRY": "country",
+        "PHONE": "phone",
+        "EMAIL": "email",
+        "STATUS": "status",
+        "ISDELETED": "isDeleted"
+      }
+    }
+  ]
+}
