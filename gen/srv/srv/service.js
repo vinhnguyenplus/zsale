@@ -5,12 +5,26 @@ module.exports = cds.service.impl(async function() {
 
   // Helper to retrieve existing database records before they are updated or deleted
   async function getAffectedRecords(req) {
-    const { entity } = req;
+    const entity = req.target || req.entity;
     const query = req.query;
-    let whereClause = {};
-    if (query.DELETE && query.DELETE.where) whereClause = query.DELETE.where;
-    else if (query.UPDATE && query.UPDATE.where) whereClause = query.UPDATE.where;
-    else if (query.SELECT && query.SELECT.where) whereClause = query.SELECT.where;
+    let whereClause = null;
+    
+    if (query) {
+      if (query.DELETE && query.DELETE.where) whereClause = query.DELETE.where;
+      else if (query.UPDATE && query.UPDATE.where) whereClause = query.UPDATE.where;
+      else if (query.SELECT && query.SELECT.where) whereClause = query.SELECT.where;
+    }
+    
+    // Safety fallback to ensure we filter by ID
+    if (!whereClause || (Array.isArray(whereClause) && whereClause.length === 0) || (!Array.isArray(whereClause) && Object.keys(whereClause).length === 0)) {
+      if (req.params && req.params.length > 0) {
+        whereClause = typeof req.params[0] === 'object' ? req.params[0] : { ID: req.params[0] };
+      } else if (req.data && req.data.ID) {
+        whereClause = { ID: req.data.ID };
+      } else {
+        return [];
+      }
+    }
     
     return await cds.run(SELECT.from(entity).where(whereClause));
   }
@@ -79,23 +93,61 @@ module.exports = cds.service.impl(async function() {
   
   // Intercept reads and automatically filter out soft-deleted items
   this.before('READ', '*', (req) => {
-    const { entity } = req;
+    const entity = req.target;
     if (entity && entity.elements && entity.elements.isDeleted) {
       req.query.where({ isDeleted: false });
     }
   });
 
+  // Helper to extract a safe WHERE clause to prevent full-table operations
+  function extractSafeWhereClause(req) {
+    let whereClause = null;
+    if (req.query) {
+      if (req.query.DELETE && req.query.DELETE.where) whereClause = req.query.DELETE.where;
+      else if (query.UPDATE && query.UPDATE.where) whereClause = query.UPDATE.where;
+      else if (query.SELECT && query.SELECT.where) whereClause = query.SELECT.where;
+    }
+    
+    if (!whereClause || (Array.isArray(whereClause) && whereClause.length === 0) || (!Array.isArray(whereClause) && Object.keys(whereClause).length === 0)) {
+      if (req.params && req.params.length > 0 && req.params[0] !== undefined) {
+        whereClause = typeof req.params[0] === 'object' ? req.params[0] : { ID: req.params[0] };
+      } else if (req.data && req.data.ID) {
+        whereClause = { ID: req.data.ID };
+      }
+    }
+    return whereClause;
+  }
+
   // Intercept delete and turn it into an update isDeleted = true
   this.on('DELETE', '*', async (req, next) => {
-    const { entity } = req;
+    const entity = req.target;
     if (entity && entity.elements && entity.elements.isDeleted) {
+      const whereClause = extractSafeWhereClause(req);
+      if (!whereClause) {
+        return req.error(400, 'Delete request must specify a valid ID to prevent mass deletion.');
+      }
+
       const db = await cds.connect.to('db');
+      const updateData = { isDeleted: true };
+      if (entity.name === 'sap.cap.northwind.Orders') {
+        updateData.status = 'DELETED';
+      }
       const affectedRows = await db.run(
-        UPDATE(entity).set({ isDeleted: true }).where(req.query.DELETE.where)
+        UPDATE(entity).set(updateData).where(whereClause)
       );
       return affectedRows;
     }
     return next();
+  });
+
+  // Action to restore all dummy data
+  this.on('resetDummyData', async () => {
+    await UPDATE('sap.cap.northwind.Categories').set({ isDeleted: false });
+    await UPDATE('sap.cap.northwind.Products').set({ isDeleted: false });
+    await UPDATE('sap.cap.northwind.Customers').set({ isDeleted: false, status: 'active' });
+    await UPDATE('sap.cap.northwind.Orders').set({ isDeleted: false, status: 'NEW' });
+    await UPDATE('sap.cap.northwind.OrderItems').set({ isDeleted: false });
+    return 'All dummy data (Categories, Products, Customers, Orders, OrderItems) have been successfully restored!';
   });
 
   // -----------------------------------------------------------------
@@ -344,7 +396,7 @@ module.exports = cds.service.impl(async function() {
     // Calculations
     req.data.subtotal = parseFloat(subtotal.toFixed(2));
     req.data.tax = parseFloat((subtotal * 0.10).toFixed(2));
-    const freight = req.data.freight || 0;
+    const freight = parseFloat(req.data.freight) || 0;
     req.data.totalAmount = parseFloat((req.data.subtotal + req.data.tax + freight).toFixed(2));
 
     if (req.data.totalAmount > 999999) {
@@ -360,19 +412,25 @@ module.exports = cds.service.impl(async function() {
     const incoming = req.data;
 
     for (const beforeUpdate of records) {
-      // Completed/Cancelled cannot be edited
-      if (beforeUpdate.status === 'COMPLETED' || beforeUpdate.status === 'CANCELLED') {
+      // Completed/Cancelled/Deleted cannot be edited
+      if (beforeUpdate.status === 'COMPLETED' || beforeUpdate.status === 'CANCELLED' || beforeUpdate.status === 'DELETED') {
         req.error(400, `Cannot edit order because it is already ${beforeUpdate.status}.`);
         return;
       }
 
       // Status transition validation
       if (incoming.status && incoming.status !== beforeUpdate.status) {
+        if (incoming.status === 'DELETED' && !incoming.isDeleted) {
+          req.error(400, 'To delete an order, please use the HTTP DELETE method instead of updating the status manually.');
+          return;
+        }
+
         const allowed = {
-          'NEW': ['PROCESSING'],
-          'PROCESSING': ['COMPLETED', 'CANCELLED'],
+          'NEW': ['PROCESSING', 'DELETED'],
+          'PROCESSING': ['COMPLETED', 'CANCELLED', 'DELETED'],
           'COMPLETED': [],
-          'CANCELLED': []
+          'CANCELLED': [],
+          'DELETED': []
         };
         if (!allowed[beforeUpdate.status]?.includes(incoming.status)) {
           req.error(400, `Status transition from ${beforeUpdate.status} to ${incoming.status} is not allowed.`);
@@ -434,8 +492,8 @@ module.exports = cds.service.impl(async function() {
 
         incoming.subtotal = parseFloat(subtotal.toFixed(2));
         incoming.tax = parseFloat((subtotal * 0.10).toFixed(2));
-        const freight = incoming.freight !== undefined ? incoming.freight : beforeUpdate.freight;
-        incoming.totalAmount = parseFloat((incoming.subtotal + incoming.tax + (freight || 0)).toFixed(2));
+        const freight = parseFloat(incoming.freight !== undefined ? incoming.freight : beforeUpdate.freight) || 0;
+        incoming.totalAmount = parseFloat((incoming.subtotal + incoming.tax + freight).toFixed(2));
 
         if (incoming.totalAmount > 999999) {
           req.error(400, 'Total amount cannot exceed 999999.', 'totalAmount');
@@ -447,20 +505,21 @@ module.exports = cds.service.impl(async function() {
       } else {
         // If freight is updated without items
         if (incoming.freight !== undefined) {
-          const sub = beforeUpdate.subtotal || 0;
-          const tx = beforeUpdate.tax || 0;
-          incoming.totalAmount = parseFloat((sub + tx + (incoming.freight || 0)).toFixed(2));
+          const sub = parseFloat(beforeUpdate.subtotal) || 0;
+          const tx = parseFloat(beforeUpdate.tax) || 0;
+          const fr = parseFloat(incoming.freight) || 0;
+          incoming.totalAmount = parseFloat((sub + tx + fr).toFixed(2));
         }
       }
     }
   });
 
-  // Restore stock when deleting orders, prevent delete if COMPLETED
+  // Restore stock when deleting orders, prevent delete if not NEW or PROCESSING
   this.before('DELETE', 'Orders', async (req) => {
     const records = await getAffectedRecords(req);
     for (const record of records) {
-      if (record.status === 'COMPLETED') {
-        req.error(400, `Cannot delete Order '${record.orderNumber}' because it is COMPLETED.`);
+      if (record.status !== 'NEW' && record.status !== 'PROCESSING') {
+        req.error(400, `Cannot delete Order '${record.orderNumber}' because its status is ${record.status}. Only NEW and PROCESSING orders can be deleted.`);
         return;
       }
 
@@ -474,6 +533,9 @@ module.exports = cds.service.impl(async function() {
             .where({ ID: item.product_ID });
         }
       }
+
+      // Cascade soft-delete to OrderItems
+      await UPDATE(OrderItems).set({ isDeleted: true }).where({ order_ID: record.ID });
     }
   });
 
@@ -578,12 +640,12 @@ module.exports = cds.service.impl(async function() {
   // 7. AUDIT LOGGING
   // -----------------------------------------------------------------
   this.after(['CREATE', 'UPDATE', 'DELETE'], '*', async (data, req) => {
-    const { entity, event, user } = req;
+    const { event, user } = req;
     const timestamp = new Date().toISOString();
     const userId = user.id || 'anonymous';
-    const targetName = entity.name;
+    const targetName = req.entity || req.target?.name || '';
 
-    if (targetName.includes('.drafts')) return;
+    if (targetName && targetName.includes('.drafts')) return;
 
     let targetId = 'n/a';
     if (req.data && req.data.ID) {

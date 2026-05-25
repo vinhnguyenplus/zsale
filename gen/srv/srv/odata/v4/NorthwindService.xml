@@ -38,6 +38,7 @@
           <NavigationPropertyBinding Path="order" Target="Orders"/>
           <NavigationPropertyBinding Path="product" Target="Products"/>
         </EntitySet>
+        <ActionImport Name="resetDummyData" Action="NorthwindService.resetDummyData"/>
       </EntityContainer>
       <EntityType Name="Products">
         <Key>
@@ -154,6 +155,9 @@
         <Property Name="unitPrice" Type="Edm.Decimal" Precision="10" Scale="2"/>
         <Property Name="discount" Type="Edm.Decimal" Precision="5" Scale="2" DefaultValue="0"/>
       </EntityType>
+      <Action Name="resetDummyData" IsBound="false">
+        <ReturnType Type="Edm.String"/>
+      </Action>
       <Annotations Target="NorthwindService.Products">
         <Annotation Term="UI.HeaderInfo">
           <Record Type="UI.HeaderInfoType">

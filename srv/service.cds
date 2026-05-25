@@ -16,6 +16,8 @@ service NorthwindService {
   entity Orders as projection on my.Orders;
 
   entity OrderItems as projection on my.OrderItems;
+
+  action resetDummyData() returns String;
 }
 
 // Optimistic Locking support

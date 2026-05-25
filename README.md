@@ -144,3 +144,4 @@ cf deploy mta_archives/zsale-northwind_1.0.0.mtar
 }
 
 cf deploy mta_archives/zsale-northwind_1.0.0.mtar
+export PATH="$HOME/.local/bin:$PATH"

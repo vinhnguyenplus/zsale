@@ -2051,6 +2051,12 @@
         }
       }
     },
+    "NorthwindService.resetDummyData": {
+      "kind": "action",
+      "returns": {
+        "type": "cds.String"
+      }
+    },
     "Language": {
       "kind": "type",
       "@title": "{i18n>Language}",
