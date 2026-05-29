@@ -1,0 +1,2481 @@
+#2026 05 25 14:26:35.792#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#http-nio-0.0.0.0-8080-exec-3#
+[XS2StartProcessListener] Operation ID: bc27d2cd-5845-11f1-8e85-eeee0a93843d#
+#2026 05 25 14:26:35.840#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#http-nio-0.0.0.0-8080-exec-3#
+[XS2StartProcessListener] Process environment: {
+  "SKIP_SSL_VALIDATION" : "false",
+  "FLOWABLE_JOB_EXECUTOR_MAX_THREADS" : "32",
+  "VERSION" : "2.45.0",
+  "BASIC_AUTH_ENABLED" : "true",
+  "FLOWABLE_JOB_EXECUTOR_QUEUE_CAPACITY" : "16",
+  "FLOWABLE_JOB_EXECUTOR_CORE_THREADS" : "8"
+}#
+#2026 05 25 14:26:35.840#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#http-nio-0.0.0.0-8080-exec-3#
+[XS2StartProcessListener] Current user: tanvinhit@gmail.com#
+#2026 05 25 14:26:35.840#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#http-nio-0.0.0.0-8080-exec-3#
+[XS2StartProcessListener] Client space: dev#
+#2026 05 25 14:26:35.840#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#http-nio-0.0.0.0-8080-exec-3#
+[XS2StartProcessListener] Client organization: 733d95cctrial#
+#2026 05 25 14:26:35.840#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#http-nio-0.0.0.0-8080-exec-3#
+[XS2StartProcessListener] Process variables: {
+  "keepFiles" : false,
+  "skipAppDigestCalculation" : false,
+  "abortOnError" : false,
+  "mtaId" : "zsale-northwind",
+  "noFailOnMissingPermissions" : false,
+  "isSecurityEnabled" : false,
+  "apiRequestPath" : "https://deploy-service.cf.ap21.hana.ondemand.com/api/v1/spaces/866e022a-f99a-4e70-b297-343c39329964/operations",
+  "deleteServiceBrokers" : false,
+  "appArchiveId" : "e8fea2e2-ea35-4ab6-ae6b-aa3e2b786f1b",
+  "isDisposableUserProvidedServiceEnabled" : false,
+  "deleteServiceKeys" : false,
+  "noRestartSubscribedApps" : false,
+  "noStart" : false,
+  "deleteServices" : false
+}#
+#2026 05 25 14:26:35.929#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ValidateDeployParametersStep] Executing task "validateParametersTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:35.929#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ValidateDeployParametersStep] Validating parameters...#
+#2026 05 25 14:26:35.933#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ValidateDeployParametersStep] Size of mtars is 17,986,102 and size of extension descriptors is 0#
+#2026 05 25 14:26:35.967#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ValidateDeployParametersStep] Archive was not split! Total size in bytes: 17,986,102#
+#2026 05 25 14:26:35.967#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ValidateDeployParametersStep] Deploying in org "733d95cctrial" and space "dev"#
+#2026 05 25 14:26:35.989#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ValidateDeployParametersStep] Parameters validated#
+#2026 05 25 14:26:35.989#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+Step "Validate Parameters" finished#
+#2026 05 25 14:26:36.041#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+[DeleteRemainingFileParts] Executing task "deleteRemainingFileParts" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:36.043#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+Step "Delete Remaining File Parts" finished#
+#2026 05 25 14:26:36.096#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] Executing task "processArchiveTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:36.097#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] Processing MTA archive...#
+#2026 05 25 14:26:36.097#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] MTA Archive ID: e8fea2e2-ea35-4ab6-ae6b-aa3e2b786f1b#
+#2026 05 25 14:26:37.124#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] MTA Descriptor length: 885#
+#2026 05 25 14:26:37.124#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] MTA Archive Modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:37.125#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] MTA Archive Requires: []#
+#2026 05 25 14:26:37.125#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] MTA Archive Resources: []#
+#2026 05 25 14:26:37.144#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[XS2ProcessMtaArchiveStep] MTA archive processed#
+#2026 05 25 14:26:37.144#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+Step "Process Archive" finished#
+#2026 05 25 14:26:37.202#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+[ProcessMtaExtensionDescriptorsStep] Executing task "processExtensionDescriptorsTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:37.203#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+[ProcessMtaExtensionDescriptorsStep] Processing MTA extension descriptors...#
+#2026 05 25 14:26:37.203#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+[ProcessMtaExtensionDescriptorsStep] Provided extension descriptors: [ ]#
+#2026 05 25 14:26:37.204#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+[ProcessMtaExtensionDescriptorsStep] No extension descriptors in use#
+#2026 05 25 14:26:37.204#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+[ProcessMtaExtensionDescriptorsStep] MTA extension descriptors processed#
+#2026 05 25 14:26:37.204#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+Step "Process Extension Descriptors" finished#
+#2026 05 25 14:26:37.266#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[XS2DetectMtaSchemaVersionStep] Executing task "detectSchemaVersionTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:37.267#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[XS2DetectMtaSchemaVersionStep] Detecting MTA major schema version...#
+#2026 05 25 14:26:37.270#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[XS2DetectMtaSchemaVersionStep] Detected MTA schema version: "3"#
+#2026 05 25 14:26:37.280#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Detect Schema Version" finished#
+#2026 05 25 14:26:37.339#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+[MergeDescriptorsStep] Executing task "mergeDescriptorsTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:37.341#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+[MergeDescriptorsStep] Validating and merging descriptors...#
+#2026 05 25 14:26:37.344#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+[MergeDescriptorsStep] Merged deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "zsale-northwind",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-srv",
+    "type" : "javascript.nodejs",
+    "path" : "zsale-srv",
+    "properties" : { },
+    "parameters" : {
+      "buildpack" : "nodejs_buildpack",
+      "disk-quota" : "1024M",
+      "memory" : "256M"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "zsale-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "memory" : "256M",
+      "disk-quota" : "1024M",
+      "no-route" : true,
+      "dependency-type" : "hard",
+      "buildpack" : "nodejs_buildpack",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "type" : "managed-service",
+      "service" : "hana",
+      "service-plan" : "hdi-shared"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "enable-parallel-deployments" : true
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 05 25 14:26:37.346#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+[MergeDescriptorsStep] Descriptors validated and merged#
+#2026 05 25 14:26:37.346#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+Step "Merge Descriptors" finished#
+#2026 05 25 14:26:37.404#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Executing task "detectDeployedMtaTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:37.405#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Detecting deployed MTA...#
+#2026 05 25 14:26:37.492#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Detecting MTA by id zsale-northwind and namespace null#
+#2026 05 25 14:26:37.492#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Getting applications by metadata label selector "mta_id=78b482c2f10f4cd1e3ad7919651e4077,!mta_namespace"...#
+#2026 05 25 14:26:37.574#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Getting service instances by metadata label selector "mta_id=78b482c2f10f4cd1e3ad7919651e4077,!mta_namespace"...#
+#2026 05 25 14:26:37.699#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Deployed MTA: {
+  "metadata" : {
+    "id" : "zsale-northwind",
+    "version" : "1.0.0"
+  },
+  "applications" : [ {
+    "name" : "zsale-db-deployer",
+    "metadata" : {
+      "guid" : "36102a24-a7e1-4797-b52e-9d12cda3df3d",
+      "createdAt" : [ 2026, 5, 25, 0, 44, 46 ],
+      "updatedAt" : [ 2026, 5, 25, 9, 40, 4 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_version" : "1.0.0",
+        "mta_id" : "zsale-northwind",
+        "mta_module" : "{\"name\":\"zsale-db-deployer\"}",
+        "mta_module_provided_dependencies" : "[]",
+        "mta_bound_services" : "[\"zsale-db\"]"
+      },
+      "labels" : {
+        "mta_id" : "78b482c2f10f4cd1e3ad7919651e4077"
+      }
+    },
+    "state" : "STOPPED",
+    "lifecycle" : {
+      "type" : "BUILDPACK",
+      "data" : {
+        "buildpacks" : [ "nodejs_buildpack" ],
+        "stack" : "cflinuxfs4"
+      }
+    },
+    "space" : {
+      "name" : "dev",
+      "metadata" : {
+        "guid" : "866e022a-f99a-4e70-b297-343c39329964",
+        "createdAt" : [ 2026, 5, 6, 8, 22, 7 ],
+        "updatedAt" : [ 2026, 5, 6, 8, 22, 7 ]
+      },
+      "organization" : {
+        "name" : "733d95cctrial",
+        "metadata" : {
+          "guid" : "03e6d9f5-da3e-4e73-9964-9ceb8bc4c62a",
+          "createdAt" : [ 2026, 5, 6, 8, 22, 6 ],
+          "updatedAt" : [ 2026, 5, 6, 8, 22, 7 ]
+        }
+      }
+    },
+    "moduleName" : "zsale-db-deployer",
+    "boundMtaServices" : [ "zsale-db" ],
+    "providedDependencyNames" : [ ],
+    "productizationState" : "LIVE"
+  }, {
+    "name" : "zsale-srv",
+    "metadata" : {
+      "guid" : "0a4c9868-b406-4fb2-8970-c0aa0fdd0598",
+      "createdAt" : [ 2026, 5, 25, 0, 44, 48 ],
+      "updatedAt" : [ 2026, 5, 25, 12, 52, 33 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "zsale-northwind",
+        "mta_version" : "1.0.0",
+        "mta_module" : "{\"name\":\"zsale-srv\"}",
+        "mta_module_provided_dependencies" : "[]",
+        "mta_bound_services" : "[\"zsale-db\"]"
+      },
+      "labels" : {
+        "mta_id" : "78b482c2f10f4cd1e3ad7919651e4077"
+      }
+    },
+    "state" : "STARTED",
+    "lifecycle" : {
+      "type" : "BUILDPACK",
+      "data" : {
+        "buildpacks" : [ "nodejs_buildpack" ],
+        "stack" : "cflinuxfs4"
+      }
+    },
+    "space" : {
+      "name" : "dev",
+      "metadata" : {
+        "guid" : "866e022a-f99a-4e70-b297-343c39329964",
+        "createdAt" : [ 2026, 5, 6, 8, 22, 7 ],
+        "updatedAt" : [ 2026, 5, 6, 8, 22, 7 ]
+      },
+      "organization" : {
+        "name" : "733d95cctrial",
+        "metadata" : {
+          "guid" : "03e6d9f5-da3e-4e73-9964-9ceb8bc4c62a",
+          "createdAt" : [ 2026, 5, 6, 8, 22, 6 ],
+          "updatedAt" : [ 2026, 5, 6, 8, 22, 7 ]
+        }
+      }
+    },
+    "moduleName" : "zsale-srv",
+    "boundMtaServices" : [ "zsale-db" ],
+    "providedDependencyNames" : [ ],
+    "productizationState" : "LIVE"
+  } ],
+  "services" : [ {
+    "name" : "zsale-db",
+    "metadata" : {
+      "guid" : "8e37444b-990a-4a2f-ba09-27b92865cb11",
+      "createdAt" : [ 2026, 5, 25, 0, 44, 37 ],
+      "updatedAt" : [ 2026, 5, 25, 0, 44, 37 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_version" : "1.0.0",
+        "mta_resource" : "{\"name\":\"zsale-db\"}",
+        "mta_id" : "zsale-northwind"
+      },
+      "labels" : {
+        "mta_id" : "78b482c2f10f4cd1e3ad7919651e4077"
+      }
+    },
+    "label" : "hana",
+    "plan" : "hdi-shared",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "zsale-db"
+  } ]
+}#
+#2026 05 25 14:26:37.699#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Detected deployed MTA with ID "zsale-northwind" and version "1.0.0"#
+#2026 05 25 14:26:37.710#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Detecting backup mta by id "zsale-northwind" and namespace "null"#
+#2026 05 25 14:26:37.710#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Getting applications by metadata label selector "mta_id=78b482c2f10f4cd1e3ad7919651e4077,mta_namespace=b698114a0995e936895b9598a6c19a2c"...#
+#2026 05 25 14:26:37.740#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Getting service instances by metadata label selector "mta_id=78b482c2f10f4cd1e3ad7919651e4077,mta_namespace=b698114a0995e936895b9598a6c19a2c"...#
+#2026 05 25 14:26:37.806#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+[DetectDeployedMtaStep] Deployed MTA service keys: [ ]#
+#2026 05 25 14:26:37.806#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-759#
+Step "Detect Deployed MTA" finished#
+#2026 05 25 14:26:37.866#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Executing task "collectSystemParametersTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:37.868#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Collecting system parameters...#
+#2026 05 25 14:26:37.869#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Getting default domain...#
+#2026 05 25 14:26:37.902#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Default domain: cfapps.ap21.hana.ondemand.com#
+#2026 05 25 14:26:37.902#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Checking for overwriting read-only parameters for mta with id: "zsale-northwind"#
+#2026 05 25 14:26:37.903#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] No read-only parameters are overwritten#
+#2026 05 25 14:26:37.921#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Descriptor with system parameters: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "zsale-northwind",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-srv",
+    "type" : "javascript.nodejs",
+    "path" : "zsale-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "zsale-srv",
+      "generated-password" : "********",
+      "default-live-url" : "${protocol}://${default-live-uri}",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "default-live-host" : "733d95cctrial-dev-zsale-srv",
+      "instances" : "${default-instances}",
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-srv",
+      "app-name" : "${default-app-name}",
+      "default-live-uri" : "733d95cctrial-dev-zsale-srv.${domain}",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-srv",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "zsale-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "zsale-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "${protocol}://${default-live-uri}",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "instances" : "${default-instances}",
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "app-name" : "${default-app-name}",
+      "default-live-uri" : "733d95cctrial-dev-zsale-db-deployer.${domain}",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-db-deployer",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "dependency-type" : "hard",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "zsale-db",
+      "type" : "managed-service",
+      "default-service-name" : "zsale-db",
+      "default-container-name" : "733D95CCTRIAL_DEV_ZSALE_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "zsale-northwind",
+    "authorization-url" : "********",
+    "org-guid" : "03e6d9f5-da3e-4e73-9964-9ceb8bc4c62a",
+    "org" : "733d95cctrial",
+    "deploy-target" : "733d95cctrial dev",
+    "enable-parallel-deployments" : true,
+    "space" : "dev",
+    "xs-api-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.ap21.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.ap21.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "866e022a-f99a-4e70-b297-343c39329964",
+    "user" : "********",
+    "controller-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "timestamp" : "20260525142635"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 05 25 14:26:37.924#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Version rule: SAME_HIGHER#
+#2026 05 25 14:26:37.924#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Detected new MTA version: "1.0.0"#
+#2026 05 25 14:26:37.933#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] Deployed MTA version: "1.0.0"#
+#2026 05 25 14:26:37.943#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] MTA accepted for deployment#
+#2026 05 25 14:26:37.943#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[XS2CollectSystemParametersStep] System parameters collected#
+#2026 05 25 14:26:37.944#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+Step "Collect System Parameters" finished#
+#2026 05 25 14:26:38.002#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ProcessDescriptorStep] Executing task "processDescriptorTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:38.004#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+#2026 05 25 14:26:38.009#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ProcessDescriptorStep] Subscriptions: [ ]#
+#2026 05 25 14:26:38.009#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ProcessDescriptorStep] MTA modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:38.010#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "zsale-northwind",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-srv",
+    "type" : "javascript.nodejs",
+    "path" : "zsale-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "default-app-name" : "zsale-srv",
+      "generated-password" : "********",
+      "default-live-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "default-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "default-live-host" : "733d95cctrial-dev-zsale-srv",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-srv",
+      "app-name" : "zsale-srv",
+      "default-live-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-srv",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "domain" : "cfapps.ap21.hana.ondemand.com",
+      "host" : "733d95cctrial-dev-zsale-srv",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "zsale-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "default-app-name" : "zsale-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "default-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "app-name" : "zsale-db-deployer",
+      "default-live-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-db-deployer",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.ap21.hana.ondemand.com",
+      "host" : "733d95cctrial-dev-zsale-db-deployer",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "zsale-db",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "zsale-db",
+      "type" : "managed-service",
+      "default-service-name" : "zsale-db",
+      "default-container-name" : "733D95CCTRIAL_DEV_ZSALE_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "zsale-northwind",
+    "authorization-url" : "********",
+    "org-guid" : "03e6d9f5-da3e-4e73-9964-9ceb8bc4c62a",
+    "org" : "733d95cctrial",
+    "deploy-target" : "733d95cctrial dev",
+    "enable-parallel-deployments" : true,
+    "region-primary-domain" : "ap21.hana.ondemand.com",
+    "space" : "dev",
+    "region-domain" : "ap21.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.ap21.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.ap21.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "866e022a-f99a-4e70-b297-343c39329964",
+    "user" : "********",
+    "controller-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "timestamp" : "20260525142635"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 05 25 14:26:38.010#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+#2026 05 25 14:26:38.010#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+Step "Process Descriptor Step" finished#
+#2026 05 25 14:26:38.074#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Executing task "buildDeployModelTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:38.080#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Service keys defined for content deployment grouped by service name: { }#
+#2026 05 25 14:26:38.081#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Building cloud deployment model...#
+#2026 05 25 14:26:38.083#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] MTA archive modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:38.083#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Deployed modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:38.085#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] MTA modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:38.085#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Service keys to create: {
+  "zsale-db" : [ ]
+}#
+#2026 05 25 14:26:38.086#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Modules to deploy: [{
+  "majorSchemaVersion" : 3,
+  "name" : "zsale-srv",
+  "type" : "javascript.nodejs",
+  "path" : "zsale-srv",
+  "properties" : { },
+  "parameters" : {
+    "default-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "default-app-name" : "zsale-srv",
+    "generated-password" : "********",
+    "default-live-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "default-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "memory" : "256M",
+    "default-instances" : 1,
+    "default-live-host" : "733d95cctrial-dev-zsale-srv",
+    "instances" : 1,
+    "buildpack" : "nodejs_buildpack",
+    "default-host" : "733d95cctrial-dev-zsale-srv",
+    "app-name" : "zsale-srv",
+    "default-live-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "protocol" : "https",
+    "default-live-app-name" : "zsale-srv",
+    "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+    "disk-quota" : "1024M",
+    "dependency-type" : "soft",
+    "domain" : "cfapps.ap21.hana.ondemand.com",
+    "host" : "733d95cctrial-dev-zsale-srv",
+    "generated-user" : "********"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "srv-api",
+    "isPublic" : false,
+    "properties" : {
+      "srv-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-srv",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+}, {
+  "majorSchemaVersion" : 3,
+  "name" : "zsale-db-deployer",
+  "type" : "com.sap.xs.hdi",
+  "path" : "zsale-db-deployer",
+  "properties" : {
+    "EXIT" : 1
+  },
+  "parameters" : {
+    "default-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "default-app-name" : "zsale-db-deployer",
+    "generated-password" : "********",
+    "default-live-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "default-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "memory" : "256M",
+    "default-instances" : 1,
+    "no-route" : true,
+    "default-live-host" : "733d95cctrial-dev-zsale-db-deployer",
+    "instances" : 1,
+    "buildpack" : "nodejs_buildpack",
+    "default-host" : "733d95cctrial-dev-zsale-db-deployer",
+    "app-name" : "zsale-db-deployer",
+    "default-live-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "protocol" : "https",
+    "default-live-app-name" : "zsale-db-deployer",
+    "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+    "disk-quota" : "1024M",
+    "dependency-type" : "hard",
+    "domain" : "cfapps.ap21.hana.ondemand.com",
+    "host" : "733d95cctrial-dev-zsale-db-deployer",
+    "generated-user" : "********",
+    "tasks" : [ {
+      "command" : "npm start",
+      "memory" : "256M",
+      "name" : "deploy"
+    } ],
+    "no-start" : true
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db-deployer",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+}]#
+#2026 05 25 14:26:38.086#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Custom domains: []#
+#2026 05 25 14:26:38.089#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Calculating resource batches...#
+#2026 05 25 14:26:38.090#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Calculating resource batches completed.#
+#2026 05 25 14:26:38.090#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[XS2BuildCloudDeployModelStep] Cloud deployment model built#
+#2026 05 25 14:26:38.090#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+Step "Build Deploy Model" finished#
+#2026 05 25 14:26:38.151#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Executing task "buildUndeployModelTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:38.153#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Building cloud undeployment model...#
+#2026 05 25 14:26:38.157#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Detecting service keys to delete.#
+#2026 05 25 14:26:38.158#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] No deployed service keys detected!#
+#2026 05 25 14:26:38.158#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Detected service keys to delete "[]"#
+#2026 05 25 14:26:38.166#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] MTA modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:38.166#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Modules to undeploy: [ ]#
+#2026 05 25 14:26:38.166#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Modules that won't be changed: [ ]#
+#2026 05 25 14:26:38.168#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Subscriptions to delete: [ ]#
+#2026 05 25 14:26:38.170#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Cloud services to delete: []#
+#2026 05 25 14:26:38.170#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Cloud applications to undeploy: [ ]#
+#2026 05 25 14:26:38.174#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+[BuildCloudUndeployModelStep] Cloud undeployment model built#
+#2026 05 25 14:26:38.174#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-753#
+Step "Build Undeploy Model" finished#
+#2026 05 25 14:26:38.235#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+[AddDomainsStep] Executing task "addDomainsTask" of process "bc27d2f3-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:38.239#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+[AddDomainsStep] Custom domains: []#
+#2026 05 25 14:26:38.239#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-756#
+Step "Add Domains" finished#
+#2026 05 25 14:26:38.421#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+[ExtractBatchedServicesWithResolvedDynamicParametersStep] Executing task "prepareModulesDeploymentTask" of process "bdacc54f-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:38.422#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+[ExtractBatchedServicesWithResolvedDynamicParametersStep] Extracting services and resolving dynamic parameters from batch#
+#2026 05 25 14:26:38.424#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+[ExtractBatchedServicesWithResolvedDynamicParametersStep] Services to create: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "zsale-db",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "zsale-northwind",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"zsale-db\"}"
+    },
+    "labels" : {
+      "mta_id" : "78b482c2f10f4cd1e3ad7919651e4077"
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed",
+  "resourceName" : "zsale-db",
+  "shouldSkipParametersUpdate" : false,
+  "shouldSkipPlanUpdate" : false,
+  "shouldSkipTagsUpdate" : false,
+  "shouldSkipSyslogUrlUpdate" : false
+} ]#
+#2026 05 25 14:26:38.426#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-758#
+Step "Extract Services with Resolved Dynamic parameters from batch" finished#
+#2026 05 25 14:26:38.576#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[CheckServiceOperationStateStep] Executing task "CheckServiceOperationStateTask" of process "bdc72a58-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:38.578#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+[CheckServiceOperationStateStep] Getting service instance "zsale-db"...#
+#2026 05 25 14:26:38.696#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-760#
+Step "Check for service operations in Progress" finished#
+#2026 05 25 14:26:38.767#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+[DetermineServiceCreateUpdateServiceActionsStep] Executing task "DetermineServiceCreateUpdateActionsTask" of process "bdc72a58-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:38.771#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+[DetermineServiceCreateUpdateServiceActionsStep] Processing service "zsale-db"...#
+#2026 05 25 14:26:38.780#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+[DetermineServiceCreateUpdateServiceActionsStep] Getting service instance "zsale-db"...#
+#2026 05 25 14:26:38.924#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+[DetermineServiceCreateUpdateServiceActionsStep] Existing service: {
+  "name" : "zsale-db",
+  "metadata" : {
+    "guid" : "8e37444b-990a-4a2f-ba09-27b92865cb11",
+    "createdAt" : [ 2026, 5, 25, 0, 44, 37 ],
+    "updatedAt" : [ 2026, 5, 25, 0, 44, 37 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"zsale-db\"}",
+      "mta_id" : "zsale-northwind"
+    },
+    "labels" : {
+      "mta_id" : "78b482c2f10f4cd1e3ad7919651e4077"
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed",
+  "lastOperation" : {
+    "type" : "CREATE",
+    "state" : "SUCCEEDED"
+  }
+}#
+#2026 05 25 14:26:38.924#Z#WARN#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+[DetermineServiceCreateUpdateServiceActionsStep] Service parameters for service "zsale-db" will not be updated, as the parameters are not defined or empty.#
+#2026 05 25 14:26:38.925#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-754#
+Step "Determine update actions" finished#
+#2026 05 25 14:26:39.000#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+[CheckForServiceBindingOrKeyOperationStep] Executing task "CheckForServiceBindingOrKeyCreation" of process "bdc72a58-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:39.002#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-755#
+Step "Check for service binding or key creation" finished#
+#2026 05 25 14:26:39.411#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[PrepareModulesDeploymentStep] Executing task "prepareModulesDeploymentTask" of process "be3dba24-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:39.412#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[PrepareModulesDeploymentStep] Preparing modules deployment...#
+#2026 05 25 14:26:39.422#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Prepare Modules Deployment" finished#
+#2026 05 25 14:26:39.483#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ComputeNextModulesStep] Executing task "computeNextModulesToDeployInParallel" of process "be3dba24-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:39.485#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ComputeNextModulesStep] Computing modules for next parallel iteration...#
+#2026 05 25 14:26:39.488#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ComputeNextModulesStep] Completed modules detected: []#
+#2026 05 25 14:26:39.488#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ComputeNextModulesStep] All modules for deploy detected: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:39.488#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ComputeNextModulesStep] Modules not for deploy detected: []#
+#2026 05 25 14:26:39.489#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ComputeNextModulesStep] Computed modules for next parallel iteration: [ {
+  "majorSchemaVersion" : 3,
+  "name" : "zsale-srv",
+  "type" : "javascript.nodejs",
+  "path" : "zsale-srv",
+  "properties" : { },
+  "parameters" : {
+    "app-name" : "zsale-srv",
+    "buildpack" : "nodejs_buildpack",
+    "default-app-name" : "zsale-srv",
+    "default-host" : "733d95cctrial-dev-zsale-srv",
+    "default-instances" : 1,
+    "default-live-app-name" : "zsale-srv",
+    "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+    "default-live-host" : "733d95cctrial-dev-zsale-srv",
+    "default-live-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "default-live-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "default-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "default-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+    "dependency-type" : "soft",
+    "disk-quota" : "1024M",
+    "domain" : "cfapps.ap21.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "********",
+    "host" : "733d95cctrial-dev-zsale-srv",
+    "instances" : 1,
+    "memory" : "256M",
+    "protocol" : "https"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "srv-api",
+    "isPublic" : false,
+    "properties" : {
+      "srv-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-srv",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+}, {
+  "majorSchemaVersion" : 3,
+  "name" : "zsale-db-deployer",
+  "type" : "com.sap.xs.hdi",
+  "path" : "zsale-db-deployer",
+  "properties" : {
+    "EXIT" : 1
+  },
+  "parameters" : {
+    "app-name" : "zsale-db-deployer",
+    "buildpack" : "nodejs_buildpack",
+    "default-app-name" : "zsale-db-deployer",
+    "default-host" : "733d95cctrial-dev-zsale-db-deployer",
+    "default-instances" : 1,
+    "default-live-app-name" : "zsale-db-deployer",
+    "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+    "default-live-host" : "733d95cctrial-dev-zsale-db-deployer",
+    "default-live-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "default-live-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "default-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "default-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+    "dependency-type" : "hard",
+    "disk-quota" : "1024M",
+    "domain" : "cfapps.ap21.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "********",
+    "host" : "733d95cctrial-dev-zsale-db-deployer",
+    "instances" : 1,
+    "memory" : "256M",
+    "no-route" : true,
+    "no-start" : true,
+    "protocol" : "https",
+    "tasks" : [ {
+      "command" : "npm start",
+      "memory" : "256M",
+      "name" : "deploy"
+    } ]
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db-deployer",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+} ]#
+#2026 05 25 14:26:39.489#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Compute Next Modules To Deploy" finished#
+#2026 05 25 14:26:39.701#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ProcessDescriptorStep] Executing task "reprocessDescriptorTask" of process "be6c9313-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:39.702#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+#2026 05 25 14:26:39.707#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ProcessDescriptorStep] Subscriptions: [ ]#
+#2026 05 25 14:26:39.716#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ProcessDescriptorStep] MTA modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:39.722#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "zsale-northwind",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-srv",
+    "type" : "javascript.nodejs",
+    "path" : "zsale-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "default-app-name" : "zsale-srv",
+      "generated-password" : "********",
+      "default-live-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "default-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "default-live-host" : "733d95cctrial-dev-zsale-srv",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-srv",
+      "app-name" : "zsale-srv",
+      "default-live-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-srv",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "domain" : "cfapps.ap21.hana.ondemand.com",
+      "host" : "733d95cctrial-dev-zsale-srv",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "zsale-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "default-app-name" : "zsale-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "default-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "app-name" : "zsale-db-deployer",
+      "default-live-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-db-deployer",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.ap21.hana.ondemand.com",
+      "host" : "733d95cctrial-dev-zsale-db-deployer",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "zsale-db",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "zsale-db",
+      "type" : "managed-service",
+      "default-service-name" : "zsale-db",
+      "default-container-name" : "733D95CCTRIAL_DEV_ZSALE_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "zsale-northwind",
+    "authorization-url" : "********",
+    "org-guid" : "03e6d9f5-da3e-4e73-9964-9ceb8bc4c62a",
+    "org" : "733d95cctrial",
+    "deploy-target" : "733d95cctrial dev",
+    "enable-parallel-deployments" : true,
+    "region-primary-domain" : "ap21.hana.ondemand.com",
+    "space" : "dev",
+    "region-domain" : "ap21.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.ap21.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.ap21.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "866e022a-f99a-4e70-b297-343c39329964",
+    "user" : "********",
+    "controller-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "timestamp" : "20260525142635"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 05 25 14:26:39.722#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+#2026 05 25 14:26:39.722#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Re-Process Descriptor Step" finished#
+#2026 05 25 14:26:39.775#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[BuildApplicationDeployModelStep] Executing task "buildApplicationDeployModelTask" of process "be6c9313-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:39.779#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[BuildApplicationDeployModelStep] Building cloud deployment model for application "zsale-srv"...#
+#2026 05 25 14:26:39.789#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[BuildApplicationDeployModelStep] No health-check-type is specified. Setting default type: port#
+#2026 05 25 14:26:39.789#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[BuildApplicationDeployModelStep] Building configuration entries for org 733d95cctrial, space dev, spaceId 866e022a-f99a-4e70-b297-343c39329964 and namespace null!#
+#2026 05 25 14:26:39.791#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[BuildApplicationDeployModelStep] Configuration entries to publish: [ ]#
+#2026 05 25 14:26:39.792#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[BuildApplicationDeployModelStep] Cloud deployment model for application built#
+#2026 05 25 14:26:39.792#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Build Application Deploy Model" finished#
+#2026 05 25 14:26:39.852#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Executing task "createAppTask" of process "be6c9313-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:39.856#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Getting application "zsale-srv"...#
+#2026 05 25 14:26:39.895#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Updating application "zsale-srv"...#
+#2026 05 25 14:26:39.908#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Getting process for application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:39.957#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Getting routes for application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:39.995#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Getting features for application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"#
+#2026 05 25 14:26:40.035#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Updating staging of application "zsale-srv" to: {
+  "buildpacks" : [ "nodejs_buildpack" ],
+  "healthCheckType" : "port",
+  "appFeatures" : { }
+}#
+#2026 05 25 14:26:40.308#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Application "zsale-srv" updated#
+#2026 05 25 14:26:40.308#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Getting environment of application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:40.403#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CreateOrUpdateAppStep] Application "zsale-srv" updated#
+#2026 05 25 14:26:40.403#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Create App" finished#
+#2026 05 25 14:26:40.548#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CheckServiceBindingOperationStep] Executing task "checkForServiceBindingOperationInProgress" of process "bef438f6-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:40.549#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CheckServiceBindingOperationStep] Checking for service binding operation in progress between app "zsale-srv" and service instance "zsale-db"#
+#2026 05 25 14:26:40.550#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CheckServiceBindingOperationStep] Getting application guid "zsale-srv"...#
+#2026 05 25 14:26:40.597#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CheckServiceBindingOperationStep] Getting GUID of required service instance "zsale-db"...#
+#2026 05 25 14:26:40.639#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CheckServiceBindingOperationStep] Getting binding of service instance "8e37444b-990a-4a2f-ba09-27b92865cb11" with application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:40.682#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[CheckServiceBindingOperationStep] Service binding operation "57c72a6b-a97d-4fa3-9e40-c2bf2903101e" with type "create" is in state "succeeded"#
+#2026 05 25 14:26:40.682#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Check For Service Binding Operation In Progress" finished#
+#2026 05 25 14:26:40.733#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "bef438f6-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:40.736#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Determine bind/unbind operations of application "zsale-srv" to service instance "zsale-db"#
+#2026 05 25 14:26:40.736#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Getting application "zsale-srv"...#
+#2026 05 25 14:26:40.789#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Binding parameters for application "zsale-srv": { }#
+#2026 05 25 14:26:40.845#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Check should rebind application "zsale-srv" and service instance "zsale-db"#
+#2026 05 25 14:26:40.845#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Getting GUID of required service instance "zsale-db"...#
+#2026 05 25 14:26:40.888#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Getting binding of service instance "8e37444b-990a-4a2f-ba09-27b92865cb11" with application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:40.928#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Getting parameters of service binding "57c72a6b-a97d-4fa3-9e40-c2bf2903101e"...#
+#2026 05 25 14:26:41.147#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Service instance "zsale-db" will not be rebound to application "zsale-srv" because the binding parameters are not modified#
+#2026 05 25 14:26:41.158#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "zsale-srv" and service instance "zsale-db": unbind - false bind - false#
+#2026 05 25 14:26:41.158#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Determine Application Service Binding Actions" finished#
+#2026 05 25 14:26:41.345#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineVcapServicesPropertiesChangedStep] Executing task "determineVcapServicesPropertiesChangedTask" of process "bf6bb300-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:41.349#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[DetermineVcapServicesPropertiesChangedStep] VCAP_SERVICES properties for application "zsale-srv" changed: false#
+#2026 05 25 14:26:41.349#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Determine vcap services properties changed" finished#
+#2026 05 25 14:26:41.395#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2751#
+[ProcessDescriptorStep] Executing task "reprocessDescriptorTask" of process "bf735468-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:41.396#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2751#
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+#2026 05 25 14:26:41.399#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2751#
+[ProcessDescriptorStep] Subscriptions: [ ]#
+#2026 05 25 14:26:41.404#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2751#
+[ProcessDescriptorStep] MTA modules: [zsale-db-deployer, zsale-srv]#
+#2026 05 25 14:26:41.406#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2751#
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "zsale-northwind",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-srv",
+    "type" : "javascript.nodejs",
+    "path" : "zsale-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "default-app-name" : "zsale-srv",
+      "generated-password" : "********",
+      "default-live-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "default-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "default-live-host" : "733d95cctrial-dev-zsale-srv",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-srv",
+      "app-name" : "zsale-srv",
+      "default-live-uri" : "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-srv",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "domain" : "cfapps.ap21.hana.ondemand.com",
+      "host" : "733d95cctrial-dev-zsale-srv",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "https://733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "zsale-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "default-app-name" : "zsale-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "https://733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "default-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "733d95cctrial-dev-zsale-db-deployer",
+      "app-name" : "zsale-db-deployer",
+      "default-live-uri" : "733d95cctrial-dev-zsale-db-deployer.cfapps.ap21.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "zsale-db-deployer",
+      "default-live-domain" : "cfapps.ap21.hana.ondemand.com",
+      "disk-quota" : "1024M",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.ap21.hana.ondemand.com",
+      "host" : "733d95cctrial-dev-zsale-db-deployer",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "zsale-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "zsale-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "zsale-db",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "zsale-db",
+      "type" : "managed-service",
+      "default-service-name" : "zsale-db",
+      "default-container-name" : "733D95CCTRIAL_DEV_ZSALE_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "zsale-northwind",
+    "authorization-url" : "********",
+    "org-guid" : "03e6d9f5-da3e-4e73-9964-9ceb8bc4c62a",
+    "org" : "733d95cctrial",
+    "deploy-target" : "733d95cctrial dev",
+    "enable-parallel-deployments" : true,
+    "region-primary-domain" : "ap21.hana.ondemand.com",
+    "space" : "dev",
+    "region-domain" : "ap21.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.ap21.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.ap21.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "866e022a-f99a-4e70-b297-343c39329964",
+    "user" : "********",
+    "controller-url" : "https://api.cf.ap21.hana.ondemand.com",
+    "timestamp" : "20260525142635"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 05 25 14:26:41.407#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2751#
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+#2026 05 25 14:26:41.407#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2751#
+Step "Re-Process Descriptor Step" finished#
+#2026 05 25 14:26:41.453#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2752#
+[BuildApplicationDeployModelStep] Executing task "buildApplicationDeployModelTask" of process "bf735468-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:41.455#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2752#
+[BuildApplicationDeployModelStep] Building cloud deployment model for application "zsale-db-deployer"...#
+#2026 05 25 14:26:41.528#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2752#
+[BuildApplicationDeployModelStep] No health-check-type is specified. Setting default type: port#
+#2026 05 25 14:26:41.529#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2752#
+[BuildApplicationDeployModelStep] Building configuration entries for org 733d95cctrial, space dev, spaceId 866e022a-f99a-4e70-b297-343c39329964 and namespace null!#
+#2026 05 25 14:26:41.530#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2752#
+[BuildApplicationDeployModelStep] Configuration entries to publish: [ ]#
+#2026 05 25 14:26:41.530#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2752#
+[BuildApplicationDeployModelStep] Cloud deployment model for application built#
+#2026 05 25 14:26:41.530#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2752#
+Step "Build Application Deploy Model" finished#
+#2026 05 25 14:26:41.587#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Executing task "createAppTask" of process "bf735468-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:41.590#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Getting application "zsale-db-deployer"...#
+#2026 05 25 14:26:41.645#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Updating application "zsale-db-deployer"...#
+#2026 05 25 14:26:41.657#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Getting process for application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:41.701#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Getting routes for application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:41.742#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Getting features for application "36102a24-a7e1-4797-b52e-9d12cda3df3d"#
+#2026 05 25 14:26:41.769#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Updating staging of application "zsale-db-deployer" to: {
+  "buildpacks" : [ "nodejs_buildpack" ],
+  "healthCheckType" : "port",
+  "appFeatures" : { }
+}#
+#2026 05 25 14:26:41.997#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Application "zsale-db-deployer" updated#
+#2026 05 25 14:26:41.998#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Getting environment of application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:42.090#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+[CreateOrUpdateAppStep] Application "zsale-db-deployer" updated#
+#2026 05 25 14:26:42.090#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2753#
+Step "Create App" finished#
+#2026 05 25 14:26:41.408#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[UploadAppStep] Executing task "uploadAppTask" of process "bf6bb300-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:41.410#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:41.410#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[UploadAppStep] Uploading application "zsale-srv"...#
+#2026 05 25 14:26:41.421#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[UploadAppStep] Getting application "zsale-srv"...#
+#2026 05 25 14:26:41.462#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[UploadAppStep] Getting environment of application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:41.509#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+[UploadAppStep] Calculating application digest: "zsale-srv"#
+#2026 05 25 14:26:42.305#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-757#
+Step "Upload App" finished#
+#2026 05 25 14:26:42.197#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2755#
+[CheckServiceBindingOperationStep] Executing task "checkForServiceBindingOperationInProgress" of process "bff1364b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:42.197#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2755#
+[CheckServiceBindingOperationStep] Checking for service binding operation in progress between app "zsale-db-deployer" and service instance "zsale-db"#
+#2026 05 25 14:26:42.198#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2755#
+[CheckServiceBindingOperationStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:26:42.240#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2755#
+[CheckServiceBindingOperationStep] Getting GUID of required service instance "zsale-db"...#
+#2026 05 25 14:26:42.274#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2755#
+[CheckServiceBindingOperationStep] Getting binding of service instance "8e37444b-990a-4a2f-ba09-27b92865cb11" with application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:42.317#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2755#
+[CheckServiceBindingOperationStep] Service binding operation "1945991f-b5f1-482b-944e-7068852675fd" with type "create" is in state "succeeded"#
+#2026 05 25 14:26:42.317#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2755#
+Step "Check For Service Binding Operation In Progress" finished#
+#2026 05 25 14:26:42.353#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "bff1364b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:42.354#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Determine bind/unbind operations of application "zsale-db-deployer" to service instance "zsale-db"#
+#2026 05 25 14:26:42.354#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Getting application "zsale-db-deployer"...#
+#2026 05 25 14:26:42.394#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Binding parameters for application "zsale-db-deployer": { }#
+#2026 05 25 14:26:42.436#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Check should rebind application "zsale-db-deployer" and service instance "zsale-db"#
+#2026 05 25 14:26:42.436#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Getting GUID of required service instance "zsale-db"...#
+#2026 05 25 14:26:42.476#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Getting binding of service instance "8e37444b-990a-4a2f-ba09-27b92865cb11" with application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:42.516#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Getting parameters of service binding "1945991f-b5f1-482b-944e-7068852675fd"...#
+#2026 05 25 14:26:42.718#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Service instance "zsale-db" will not be rebound to application "zsale-db-deployer" because the binding parameters are not modified#
+#2026 05 25 14:26:42.727#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "zsale-db-deployer" and service instance "zsale-db": unbind - false bind - false#
+#2026 05 25 14:26:42.727#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2756#
+Step "Determine Application Service Binding Actions" finished#
+#2026 05 25 14:26:42.861#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[DetermineVcapServicesPropertiesChangedStep] Executing task "determineVcapServicesPropertiesChangedTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:42.862#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[DetermineVcapServicesPropertiesChangedStep] VCAP_SERVICES properties for application "zsale-db-deployer" changed: false#
+#2026 05 25 14:26:42.862#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+Step "Determine vcap services properties changed" finished#
+#2026 05 25 14:26:42.898#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[UploadAppStep] Executing task "uploadAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:42.900#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:42.900#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[UploadAppStep] Uploading application "zsale-db-deployer"...#
+#2026 05 25 14:26:42.910#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[UploadAppStep] Getting application "zsale-db-deployer"...#
+#2026 05 25 14:26:42.951#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[UploadAppStep] Getting environment of application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:42.999#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+[UploadAppStep] Calculating application digest: "zsale-db-deployer"#
+#2026 05 25 14:26:43.334#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2757#
+Step "Upload App" finished#
+#2026 05 25 14:26:48.458#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2760#
+[UploadAppStep] Executing task "uploadAppTask" of process "bf6bb300-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:48.459#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2760#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:48.461#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-5#
+[UploadAppStep] Upload of application: zsale-srv started on instance: 2#
+#2026 05 25 14:26:48.461#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-5#
+[UploadAppStep] Uploading file "zsale-srv/data.zip" for application "zsale-srv"#
+#2026 05 25 14:26:48.469#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2761#
+[UploadAppStep] Executing task "uploadAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:48.470#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2761#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:48.471#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-4#
+[UploadAppStep] Upload of application: zsale-db-deployer started on instance: 2#
+#2026 05 25 14:26:48.471#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-4#
+[UploadAppStep] Uploading file "zsale-db-deployer/data.zip" for application "zsale-db-deployer"#
+#2026 05 25 14:26:49.313#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-4#
+[UploadAppStep] Time elapsed for app binary download: 841 in millis#
+#2026 05 25 14:26:49.313#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-4#
+[UploadAppStep] Size of app zsale-db-deployer is 5,362,703 bytes#
+#2026 05 25 14:26:49.313#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-4#
+[UploadAppStep] Asynchronously uploading binaries for application "zsale-db-deployer"...#
+#2026 05 25 14:26:49.490#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-5#
+[UploadAppStep] Time elapsed for app binary download: 1,028 in millis#
+#2026 05 25 14:26:49.491#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-5#
+[UploadAppStep] Size of app zsale-srv is 13,630,700 bytes#
+#2026 05 25 14:26:49.491#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-5#
+[UploadAppStep] Asynchronously uploading binaries for application "zsale-srv"...#
+#2026 05 25 14:26:49.639#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-4#
+[UploadAppStep] Started async upload of application "zsale-db-deployer"#
+#2026 05 25 14:26:49.651#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2761#
+[UploadAppStep] Time elapsed for upload: 1,180 in millis#
+#2026 05 25 14:26:49.651#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2761#
+[UploadAppStep] Getting application "zsale-db-deployer"...#
+#2026 05 25 14:26:49.692#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2761#
+[UploadAppStep] Getting environment of application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:49.694#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#App upload monitor: 5fedbde7-3d29-4d36-9772-040bb35dabad#
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+#2026 05 25 14:26:49.762#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2761#
+[UploadAppStep] Updating environment of application "zsale-db-deployer"#
+#2026 05 25 14:26:49.818#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#pool-21-thread-5#
+[UploadAppStep] Started async upload of application "zsale-srv"#
+#2026 05 25 14:26:49.827#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2760#
+[UploadAppStep] Time elapsed for upload: 1,367 in millis#
+#2026 05 25 14:26:49.828#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2760#
+[UploadAppStep] Getting application "zsale-srv"...#
+#2026 05 25 14:26:49.850#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#App upload monitor: 485d9159-af79-4b17-b2d1-f136bc27bd83#
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+#2026 05 25 14:26:49.868#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2760#
+[UploadAppStep] Getting environment of application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:49.877#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2761#
+Step "Upload App" finished#
+#2026 05 25 14:26:49.911#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2760#
+[UploadAppStep] Updating environment of application "zsale-srv"#
+#2026 05 25 14:26:50.025#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2760#
+Step "Upload App" finished#
+#2026 05 25 14:26:54.732#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#App upload monitor: 5fedbde7-3d29-4d36-9772-040bb35dabad#
+[UploadAppStep] Upload status: READY#
+#2026 05 25 14:26:54.879#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#App upload monitor: 485d9159-af79-4b17-b2d1-f136bc27bd83#
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+#2026 05 25 14:26:58.483#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2764#
+[UploadAppStep] Executing task "uploadAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:58.484#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2764#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:58.484#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2764#
+[UploadAppStep] Checking upload status of application "zsale-db-deployer"...#
+#2026 05 25 14:26:58.485#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2764#
+[UploadAppStep] Getting package "5fedbde7-3d29-4d36-9772-040bb35dabad"...#
+#2026 05 25 14:26:58.494#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2765#
+[UploadAppStep] Executing task "uploadAppTask" of process "bf6bb300-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:58.495#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2765#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:58.495#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2765#
+[UploadAppStep] Checking upload status of application "zsale-srv"...#
+#2026 05 25 14:26:58.496#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2765#
+[UploadAppStep] Getting package "485d9159-af79-4b17-b2d1-f136bc27bd83"...#
+#2026 05 25 14:26:58.515#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2764#
+[UploadAppStep] Application "zsale-db-deployer" uploaded#
+#2026 05 25 14:26:58.517#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2764#
+Step "Upload App" finished#
+#2026 05 25 14:26:58.545#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2765#
+[UploadAppStep] Application "zsale-srv" uploaded#
+#2026 05 25 14:26:58.546#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2765#
+Step "Upload App" finished#
+#2026 05 25 14:26:58.562#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2766#
+[ScaleAppStep] Executing task "scaleAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:58.565#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2766#
+[ScaleAppStep] Scaling application "zsale-db-deployer"...#
+#2026 05 25 14:26:58.565#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2766#
+[ScaleAppStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:26:58.585#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2767#
+[ScaleAppStep] Executing task "scaleAppTask" of process "bf6bb300-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:58.588#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2767#
+[ScaleAppStep] Scaling application "zsale-srv"...#
+#2026 05 25 14:26:58.588#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2767#
+[ScaleAppStep] Getting application guid "zsale-srv"...#
+#2026 05 25 14:26:58.624#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2766#
+[ScaleAppStep] Getting process for application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:58.630#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2767#
+[ScaleAppStep] Getting process for application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:58.670#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2766#
+[ScaleAppStep] Application "zsale-db-deployer" scaled#
+#2026 05 25 14:26:58.670#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2766#
+Step "Scale App" finished#
+#2026 05 25 14:26:58.673#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2767#
+[ScaleAppStep] Application "zsale-srv" scaled#
+#2026 05 25 14:26:58.673#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2767#
+Step "Scale App" finished#
+#2026 05 25 14:26:58.706#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[DetermineDesiredStateAchievingActionsStep] Executing task "determineDesiredStateAchievingActionsTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:58.706#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[DetermineDesiredStateAchievingActionsStep] Executing task "determineDesiredStateAchievingActionsTask" of process "bf6bb300-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:58.707#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[DetermineDesiredStateAchievingActionsStep] Getting application "zsale-db-deployer"...#
+#2026 05 25 14:26:58.708#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[DetermineDesiredStateAchievingActionsStep] Getting application "zsale-srv"...#
+#2026 05 25 14:26:58.738#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[DetermineDesiredStateAchievingActionsStep] Getting instances for application "zsale-srv"...#
+#2026 05 25 14:26:58.749#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[DetermineDesiredStateAchievingActionsStep] Getting instances for application "zsale-db-deployer"...#
+#2026 05 25 14:26:58.750#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[DetermineDesiredStateAchievingActionsStep] Getting environment of application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:26:58.799#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[DetermineDesiredStateAchievingActionsStep] Current state of application zsale-db-deployer: STOPPED#
+#2026 05 25 14:26:58.799#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[DetermineDesiredStateAchievingActionsStep] Desired state of application zsale-db-deployer: STOPPED#
+#2026 05 25 14:26:58.799#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[DetermineDesiredStateAchievingActionsStep] Actions that should be executed on application zsale-db-deployer: [STAGE]#
+#2026 05 25 14:26:58.800#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+Step "Determine Desired State Achieving Actions" finished#
+#2026 05 25 14:26:58.820#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[DetermineDesiredStateAchievingActionsStep] Getting environment of application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:58.869#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[DetermineDesiredStateAchievingActionsStep] Current state of application zsale-srv: STARTED#
+#2026 05 25 14:26:58.869#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[DetermineDesiredStateAchievingActionsStep] Desired state of application zsale-srv: STARTED#
+#2026 05 25 14:26:58.870#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[DetermineDesiredStateAchievingActionsStep] Actions that should be executed on application zsale-srv: [STOP, STAGE, START]#
+#2026 05 25 14:26:58.870#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+Step "Determine Desired State Achieving Actions" finished#
+#2026 05 25 14:26:58.925#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StopAppStep] Executing task "stopAppTask" of process "bf6bb300-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:26:58.928#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StopAppStep] Stopping application "zsale-srv"...#
+#2026 05 25 14:26:58.937#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StopAppStep] Stopping application "zsale-srv"...#
+#2026 05 25 14:26:59.100#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StopAppStep] Application "zsale-srv" stopped#
+#2026 05 25 14:26:59.100#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StopAppStep] Getting environment of application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:26:59.146#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+Step "Stop App" finished#
+#2026 05 25 14:26:58.842#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[StageAppStep] Executing task "stageAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:58.843#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:58.845#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[StageAppStep] Staging application "zsale-db-deployer"...#
+#2026 05 25 14:26:58.857#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+[StageAppStep] Creating build for package "5fedbde7-3d29-4d36-9772-040bb35dabad"...#
+#2026 05 25 14:26:59.195#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StageAppStep] Executing task "stageAppTask" of process "ca141fb3-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:26:59.197#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:26:59.198#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StageAppStep] Staging application "zsale-srv"...#
+#2026 05 25 14:26:59.205#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+[StageAppStep] Creating build for package "485d9159-af79-4b17-b2d1-f136bc27bd83"...#
+#2026 05 25 14:26:59.276#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2768#
+Step "Stage App" finished#
+#2026 05 25 14:26:59.553#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2769#
+Step "Stage App" finished#
+#2026 05 25 14:26:59.913#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#App upload monitor: 485d9159-af79-4b17-b2d1-f136bc27bd83#
+[UploadAppStep] Upload status: READY#
+#2026 05 25 14:27:08.508#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2772#
+[StageAppStep] Executing task "stageAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:08.509#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2772#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:08.510#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2772#
+[StageAppStep] Checking status of application "zsale-db-deployer"...#
+#2026 05 25 14:27:08.510#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2772#
+[StageAppStep] Getting build "37bb3b10-4a64-445e-9bf3-2624fd428aa5"...#
+#2026 05 25 14:27:08.516#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2773#
+[StageAppStep] Executing task "stageAppTask" of process "ca141fb3-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:08.517#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2773#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:08.517#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2773#
+[StageAppStep] Checking status of application "zsale-srv"...#
+#2026 05 25 14:27:08.517#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2773#
+[StageAppStep] Getting build "c3bf7fec-25f3-4160-a19f-2941bde18f6c"...#
+#2026 05 25 14:27:08.547#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2772#
+[StageAppStep] Staging status of application "zsale-db-deployer": PENDING#
+#2026 05 25 14:27:08.548#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2772#
+[StageAppStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:27:08.552#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2773#
+[StageAppStep] Staging status of application "zsale-srv": PENDING#
+#2026 05 25 14:27:08.554#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2773#
+[StageAppStep] Getting application guid "zsale-srv"...#
+#2026 05 25 14:27:08.657#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2772#
+Step "Stage App" finished#
+#2026 05 25 14:27:08.718#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2773#
+Step "Stage App" finished#
+#2026 05 25 14:27:18.539#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2776#
+[StageAppStep] Executing task "stageAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:18.540#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2776#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:18.541#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2776#
+[StageAppStep] Checking status of application "zsale-db-deployer"...#
+#2026 05 25 14:27:18.541#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2776#
+[StageAppStep] Getting build "37bb3b10-4a64-445e-9bf3-2624fd428aa5"...#
+#2026 05 25 14:27:18.549#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2777#
+[StageAppStep] Executing task "stageAppTask" of process "ca141fb3-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:18.550#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2777#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:18.550#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2777#
+[StageAppStep] Checking status of application "zsale-srv"...#
+#2026 05 25 14:27:18.550#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2777#
+[StageAppStep] Getting build "c3bf7fec-25f3-4160-a19f-2941bde18f6c"...#
+#2026 05 25 14:27:18.589#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2777#
+[StageAppStep] Staging status of application "zsale-srv": PENDING#
+#2026 05 25 14:27:18.590#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2777#
+[StageAppStep] Getting application guid "zsale-srv"...#
+#2026 05 25 14:27:18.599#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2776#
+[StageAppStep] Staging status of application "zsale-db-deployer": PENDING#
+#2026 05 25 14:27:18.600#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2776#
+[StageAppStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:27:18.700#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2777#
+Step "Stage App" finished#
+#2026 05 25 14:27:18.716#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2776#
+Step "Stage App" finished#
+#2026 05 25 14:27:28.574#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2780#
+[StageAppStep] Executing task "stageAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:28.576#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2780#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:28.578#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2780#
+[StageAppStep] Checking status of application "zsale-db-deployer"...#
+#2026 05 25 14:27:28.578#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2780#
+[StageAppStep] Getting build "37bb3b10-4a64-445e-9bf3-2624fd428aa5"...#
+#2026 05 25 14:27:28.584#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2781#
+[StageAppStep] Executing task "stageAppTask" of process "ca141fb3-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:28.585#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2781#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:28.586#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2781#
+[StageAppStep] Checking status of application "zsale-srv"...#
+#2026 05 25 14:27:28.586#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2781#
+[StageAppStep] Getting build "c3bf7fec-25f3-4160-a19f-2941bde18f6c"...#
+#2026 05 25 14:27:28.622#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2780#
+[StageAppStep] Staging status of application "zsale-db-deployer": PENDING#
+#2026 05 25 14:27:28.624#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2780#
+[StageAppStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:27:28.630#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2781#
+[StageAppStep] Staging status of application "zsale-srv": PENDING#
+#2026 05 25 14:27:28.633#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2781#
+[StageAppStep] Getting application guid "zsale-srv"...#
+#2026 05 25 14:27:28.712#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2781#
+Step "Stage App" finished#
+#2026 05 25 14:27:28.742#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2780#
+Step "Stage App" finished#
+#2026 05 25 14:27:38.590#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2784#
+[StageAppStep] Executing task "stageAppTask" of process "ca141fb3-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:38.591#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2784#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:38.592#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2784#
+[StageAppStep] Checking status of application "zsale-srv"...#
+#2026 05 25 14:27:38.592#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2784#
+[StageAppStep] Getting build "c3bf7fec-25f3-4160-a19f-2941bde18f6c"...#
+#2026 05 25 14:27:38.597#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Executing task "stageAppTask" of process "c0557675-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:38.598#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:38.598#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Checking status of application "zsale-db-deployer"...#
+#2026 05 25 14:27:38.598#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Getting build "37bb3b10-4a64-445e-9bf3-2624fd428aa5"...#
+#2026 05 25 14:27:38.629#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2784#
+[StageAppStep] Staging status of application "zsale-srv": PENDING#
+#2026 05 25 14:27:38.631#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2784#
+[StageAppStep] Getting application guid "zsale-srv"...#
+#2026 05 25 14:27:38.637#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Staging status of application "zsale-db-deployer": STAGED#
+#2026 05 25 14:27:38.638#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:27:38.709#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2784#
+Step "Stage App" finished#
+#2026 05 25 14:27:38.740#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Getting build "37bb3b10-4a64-445e-9bf3-2624fd428aa5"...#
+#2026 05 25 14:27:38.781#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Binding droplet "d21b998d-846e-4652-b36a-7c2563b99efb" to application "36102a24-a7e1-4797-b52e-9d12cda3df3d"...#
+#2026 05 25 14:27:38.858#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+[StageAppStep] Application "zsale-db-deployer" staged#
+#2026 05 25 14:27:38.869#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2785#
+Step "Stage App" finished#
+#2026 05 25 14:27:38.983#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2787#
+[PrepareToExecuteTasksStep] Executing task "prepareToExecuteTasksTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:38.985#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2787#
+Step "Prepare To Execute Tasks" finished#
+#2026 05 25 14:27:39.031#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2788#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:39.033#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2788#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:27:39.036#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2788#
+[ExecuteTaskStep] Executing task "deploy" on application "zsale-db-deployer"...#
+#2026 05 25 14:27:39.045#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2788#
+[ExecuteTaskStep] Running task on application "zsale-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 05 25 14:27:39.360#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2788#
+Step "Execute Task" finished#
+#2026 05 25 14:27:48.626#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1292#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:48.628#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1292#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:27:48.705#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1292#
+[ExecuteTaskStep] Getting task "92bd7e56-b3fa-41ca-b394-ac218c438b72"...#
+#2026 05 25 14:27:48.772#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1292#
+[ExecuteTaskStep] Task execution status: running#
+#2026 05 25 14:27:48.774#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1292#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:27:48.858#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1292#
+Step "Execute Task" finished#
+#2026 05 25 14:27:48.606#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Executing task "stageAppTask" of process "ca141fb3-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:48.608#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:48.608#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Checking status of application "zsale-srv"...#
+#2026 05 25 14:27:48.608#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Getting build "c3bf7fec-25f3-4160-a19f-2941bde18f6c"...#
+#2026 05 25 14:27:48.653#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Staging status of application "zsale-srv": STAGED#
+#2026 05 25 14:27:48.655#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Getting application guid "zsale-srv"...#
+#2026 05 25 14:27:48.753#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Getting build "c3bf7fec-25f3-4160-a19f-2941bde18f6c"...#
+#2026 05 25 14:27:48.789#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Binding droplet "1da7446a-8c26-4491-a458-b56687cebf62" to application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:27:48.856#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[StageAppStep] Application "zsale-srv" staged#
+#2026 05 25 14:27:48.865#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+Step "Stage App" finished#
+#2026 05 25 14:27:48.908#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[RestartAppStep] Executing task "startAppTask" of process "ca141fb3-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:48.910#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[RestartAppStep] Application start timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:48.916#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[RestartAppStep] Getting application "zsale-srv"...#
+#2026 05 25 14:27:48.956#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[RestartAppStep] Starting application "zsale-srv"...#
+#2026 05 25 14:27:48.968#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+[RestartAppStep] Starting application "zsale-srv"...#
+#2026 05 25 14:27:49.298#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2796#
+Step "Start App" finished#
+#2026 05 25 14:27:58.660#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:58.662#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:27:58.664#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+[ExecuteTaskStep] Getting task "92bd7e56-b3fa-41ca-b394-ac218c438b72"...#
+#2026 05 25 14:27:58.701#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 05 25 14:27:58.702#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:27:58.781#Z#ERROR#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+[ExecuteTaskStep] Execution of task "deploy" on application "zsale-db-deployer" failed.#
+#2026 05 25 14:27:58.793#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 05 25 14:27:58.803#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1299#
+Step "Execute Task" finished#
+#2026 05 25 14:27:58.687#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1300#
+[RestartAppStep] Executing task "startAppTask" of process "e7f8b641-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:27:58.690#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1300#
+[RestartAppStep] Application start timeout is default one: 3,600 seconds#
+#2026 05 25 14:27:58.691#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1300#
+[RestartAppStep] Checking status of application "zsale-srv"...#
+#2026 05 25 14:27:58.691#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1300#
+[RestartAppStep] Getting application "zsale-srv"...#
+#2026 05 25 14:27:58.729#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1300#
+[RestartAppStep] Getting instances for application "zsale-srv"...#
+#2026 05 25 14:27:58.783#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1300#
+[RestartAppStep] Application "zsale-srv": 0 of 1 instances running (1 starting)#
+#2026 05 25 14:27:58.818#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1300#
+Step "Start App" finished#
+#2026 05 25 14:28:01.707#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-766#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:01.710#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-766#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:01.715#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-766#
+[ExecuteTaskStep] Executing task "deploy" on application "zsale-db-deployer"...#
+#2026 05 25 14:28:01.727#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-766#
+[ExecuteTaskStep] Running task on application "zsale-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 05 25 14:28:02.065#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-766#
+Step "Execute Task" finished#
+#2026 05 25 14:28:08.687#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2798#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:08.690#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2798#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:08.692#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2798#
+[ExecuteTaskStep] Getting task "0aee4d4c-8bc5-4045-bf71-3f746357d441"...#
+#2026 05 25 14:28:08.731#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2798#
+[ExecuteTaskStep] Task execution status: running#
+#2026 05 25 14:28:08.733#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2798#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:28:08.805#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2798#
+Step "Execute Task" finished#
+#2026 05 25 14:28:08.713#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+[RestartAppStep] Executing task "startAppTask" of process "eda5a6e2-5845-11f1-91ba-eeee0a906b7d"...#
+#2026 05 25 14:28:08.717#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+[RestartAppStep] Application start timeout is default one: 3,600 seconds#
+#2026 05 25 14:28:08.718#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+[RestartAppStep] Checking status of application "zsale-srv"...#
+#2026 05 25 14:28:08.720#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+[RestartAppStep] Getting instances for application "zsale-srv"...#
+#2026 05 25 14:28:08.815#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+[RestartAppStep] Application "zsale-srv": 1 of 1 instances running (1 running)#
+#2026 05 25 14:28:08.860#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+[RestartAppStep] Getting routes for application "0a4c9868-b406-4fb2-8970-c0aa0fdd0598"...#
+#2026 05 25 14:28:08.906#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+[RestartAppStep] Application "zsale-srv" started and available at "733d95cctrial-dev-zsale-srv.cfapps.ap21.hana.ondemand.com"#
+#2026 05 25 14:28:08.918#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-768#
+Step "Start App" finished#
+#2026 05 25 14:28:18.735#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1304#
+[RestartAppStep] Executing task "startAppTask" of process "f3aac9ed-5845-11f1-8e85-eeee0a93843d"...#
+#2026 05 25 14:28:18.737#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1304#
+[RestartAppStep] Application start timeout is default one: 3,600 seconds#
+#2026 05 25 14:28:18.739#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1304#
+Step "Start App" finished#
+#2026 05 25 14:28:18.841#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1306#
+[PrepareToExecuteTasksStep] Executing task "prepareToExecuteTasksTask" of process "f98cfc08-5845-11f1-91ba-eeee0a906b7d"...#
+#2026 05 25 14:28:18.843#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1306#
+Step "Prepare To Execute Tasks" finished#
+#2026 05 25 14:28:18.707#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2800#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:18.708#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2800#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:18.709#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2800#
+[ExecuteTaskStep] Getting task "0aee4d4c-8bc5-4045-bf71-3f746357d441"...#
+#2026 05 25 14:28:18.741#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2800#
+[ExecuteTaskStep] Task execution status: running#
+#2026 05 25 14:28:18.743#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2800#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:28:18.856#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2800#
+Step "Execute Task" finished#
+#2026 05 25 14:28:18.922#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1307#
+[PublishConfigurationEntriesStep] Executing task "publishProvidedDependenciesTask" of process "f9850ca7-5845-11f1-91ba-eeee0a906b7d"...#
+#2026 05 25 14:28:18.923#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1307#
+[PublishConfigurationEntriesStep] Publishing public provided dependencies for application "zsale-srv"...#
+#2026 05 25 14:28:18.924#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1307#
+[PublishConfigurationEntriesStep] No public provided dependencies for publishing#
+#2026 05 25 14:28:18.924#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1307#
+Step "Publish Provided Dependencies" finished#
+#2026 05 25 14:28:18.965#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1308#
+[CreateOrUpdateServiceBrokerStep] Executing task "createOrUpdateServiceBrokerTask" of process "f9850ca7-5845-11f1-91ba-eeee0a906b7d"...#
+#2026 05 25 14:28:18.967#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1308#
+[CreateOrUpdateServiceBrokerStep] Creating service brokers...#
+#2026 05 25 14:28:18.968#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1308#
+Step "Create Or Update Service Broker " finished#
+#2026 05 25 14:28:28.759#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:28.761#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:28.857#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+[ExecuteTaskStep] Getting task "0aee4d4c-8bc5-4045-bf71-3f746357d441"...#
+#2026 05 25 14:28:28.911#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 05 25 14:28:28.912#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:28:29.038#Z#ERROR#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+[ExecuteTaskStep] Execution of task "deploy" on application "zsale-db-deployer" failed.#
+#2026 05 25 14:28:29.048#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 05 25 14:28:29.056#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1312#
+Step "Execute Task" finished#
+#2026 05 25 14:28:29.482#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-769#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:29.484#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-769#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:29.489#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-769#
+[ExecuteTaskStep] Executing task "deploy" on application "zsale-db-deployer"...#
+#2026 05 25 14:28:29.503#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-769#
+[ExecuteTaskStep] Running task on application "zsale-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 05 25 14:28:29.851#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-769#
+Step "Execute Task" finished#
+#2026 05 25 14:28:38.760#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2802#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:38.761#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2802#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:38.762#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2802#
+[ExecuteTaskStep] Getting task "938da2e8-2ce3-411b-8fa6-c487138a70f7"...#
+#2026 05 25 14:28:38.798#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2802#
+[ExecuteTaskStep] Task execution status: running#
+#2026 05 25 14:28:38.799#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2802#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:28:38.878#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2802#
+Step "Execute Task" finished#
+#2026 05 25 14:28:48.765#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:48.766#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:48.767#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+[ExecuteTaskStep] Getting task "938da2e8-2ce3-411b-8fa6-c487138a70f7"...#
+#2026 05 25 14:28:48.805#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 05 25 14:28:48.807#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:28:48.902#Z#ERROR#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+[ExecuteTaskStep] Execution of task "deploy" on application "zsale-db-deployer" failed.#
+#2026 05 25 14:28:48.915#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 05 25 14:28:48.924#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2804#
+Step "Execute Task" finished#
+#2026 05 25 14:28:51.100#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-770#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:51.102#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-770#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:51.106#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-770#
+[ExecuteTaskStep] Executing task "deploy" on application "zsale-db-deployer"...#
+#2026 05 25 14:28:51.115#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-770#
+[ExecuteTaskStep] Running task on application "zsale-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 05 25 14:28:51.418#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-770#
+Step "Execute Task" finished#
+#2026 05 25 14:28:58.791#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2806#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:28:58.792#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2806#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:28:58.881#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2806#
+[ExecuteTaskStep] Getting task "0a6db83e-48eb-4082-9be1-a2d8efdac6fe"...#
+#2026 05 25 14:28:58.931#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2806#
+[ExecuteTaskStep] Task execution status: running#
+#2026 05 25 14:28:58.932#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2806#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:28:59.005#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-2806#
+Step "Execute Task" finished#
+#2026 05 25 14:29:08.812#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "e1c9271b-5845-11f1-9b4b-eeee0a9b4651"...#
+#2026 05 25 14:29:08.814#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 05 25 14:29:08.893#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+[ExecuteTaskStep] Getting task "0a6db83e-48eb-4082-9be1-a2d8efdac6fe"...#
+#2026 05 25 14:29:08.945#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 05 25 14:29:08.946#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+[ExecuteTaskStep] Getting application guid "zsale-db-deployer"...#
+#2026 05 25 14:29:09.027#Z#ERROR#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+[ExecuteTaskStep] Execution of task "deploy" on application "zsale-db-deployer" failed.#
+#2026 05 25 14:29:09.041#Z#INFO#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 05 25 14:29:09.048#Z#DEBUG#bc27d2cd-5845-11f1-8e85-eeee0a93843d.OPERATION#flowable-async-job-executor-thread-1319#
+Step "Execute Task" finished#

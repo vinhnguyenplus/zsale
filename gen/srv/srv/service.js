@@ -95,6 +95,11 @@ module.exports = cds.service.impl(async function() {
   this.before('READ', '*', (req) => {
     const entity = req.target;
     if (entity && entity.elements && entity.elements.isDeleted) {
+      // Allow deleted Orders to be visible in the UI with status 'DELETED'
+      const entityName = entity.name || '';
+      if (entityName.includes('Orders') && !entityName.includes('OrderItems')) {
+        return;
+      }
       req.query.where({ isDeleted: false });
     }
   });
@@ -104,8 +109,8 @@ module.exports = cds.service.impl(async function() {
     let whereClause = null;
     if (req.query) {
       if (req.query.DELETE && req.query.DELETE.where) whereClause = req.query.DELETE.where;
-      else if (query.UPDATE && query.UPDATE.where) whereClause = query.UPDATE.where;
-      else if (query.SELECT && query.SELECT.where) whereClause = query.SELECT.where;
+      else if (req.query.UPDATE && req.query.UPDATE.where) whereClause = req.query.UPDATE.where;
+      else if (req.query.SELECT && req.query.SELECT.where) whereClause = req.query.SELECT.where;
     }
     
     if (!whereClause || (Array.isArray(whereClause) && whereClause.length === 0) || (!Array.isArray(whereClause) && Object.keys(whereClause).length === 0)) {
@@ -129,12 +134,18 @@ module.exports = cds.service.impl(async function() {
 
       const db = await cds.connect.to('db');
       const updateData = { isDeleted: true };
-      if (entity.name === 'sap.cap.northwind.Orders') {
+      // Check if this is an Orders entity (could be service name or DB name)
+      const entityName = entity.name || '';
+      if (entityName.includes('Orders') && !entityName.includes('OrderItems')) {
         updateData.status = 'DELETED';
+        updateData.subtotal = 0;
+        updateData.tax = 0;
+        updateData.totalAmount = 0;
       }
       const affectedRows = await db.run(
         UPDATE(entity).set(updateData).where(whereClause)
       );
+      // Return a count so OData knows the operation succeeded
       return affectedRows;
     }
     return next();
@@ -411,6 +422,13 @@ module.exports = cds.service.impl(async function() {
     const records = await getAffectedRecords(req);
     const incoming = req.data;
 
+    // 1. Remove meaningless/calculated fields from incoming payload
+    delete incoming.isDeleted;
+    delete incoming.orderNumber;
+    delete incoming.subtotal;
+    delete incoming.tax;
+    delete incoming.totalAmount;
+
     for (const beforeUpdate of records) {
       // Completed/Cancelled/Deleted cannot be edited
       if (beforeUpdate.status === 'COMPLETED' || beforeUpdate.status === 'CANCELLED' || beforeUpdate.status === 'DELETED') {
@@ -418,28 +436,60 @@ module.exports = cds.service.impl(async function() {
         return;
       }
 
-      // Status transition validation
-      if (incoming.status && incoming.status !== beforeUpdate.status) {
-        if (incoming.status === 'DELETED' && !incoming.isDeleted) {
-          req.error(400, 'To delete an order, please use the HTTP DELETE method instead of updating the status manually.');
+      // Check if trying to update fields other than status while in PROCESSING state
+      if (beforeUpdate.status === 'PROCESSING') {
+        const allowedFieldsInProcessing = ['status'];
+        const incomingFields = Object.keys(incoming).filter(k => !k.startsWith('_'));
+        const hasDisallowedFields = incomingFields.some(f => !allowedFieldsInProcessing.includes(f));
+        
+        if (hasDisallowedFields) {
+          req.error(400, 'When an order is PROCESSING, you can only update its status. Other fields cannot be modified.');
           return;
         }
+      }
 
+      // 2. Status transition validation
+      let transitioningToCancelledOrDeleted = false;
+      if (incoming.status && incoming.status !== beforeUpdate.status) {
         const allowed = {
           'NEW': ['PROCESSING', 'DELETED'],
-          'PROCESSING': ['COMPLETED', 'CANCELLED', 'DELETED'],
-          'COMPLETED': [],
-          'CANCELLED': [],
-          'DELETED': []
+          'PROCESSING': ['COMPLETED', 'CANCELLED', 'DELETED']
         };
         if (!allowed[beforeUpdate.status]?.includes(incoming.status)) {
           req.error(400, `Status transition from ${beforeUpdate.status} to ${incoming.status} is not allowed.`);
           return;
         }
+
+        if (incoming.status === 'CANCELLED' || incoming.status === 'DELETED') {
+          transitioningToCancelledOrDeleted = true;
+          
+          if (incoming.status === 'DELETED') {
+            incoming.isDeleted = true;
+            incoming.subtotal = 0;
+            incoming.tax = 0;
+            incoming.totalAmount = 0;
+          }
+          
+          // Restore stock for all active items
+          const oldItems = await SELECT.from(OrderItems).where({ order_ID: beforeUpdate.ID, isDeleted: false });
+          for (const item of oldItems) {
+            const prod = await SELECT.one.from(Products).where({ ID: item.product_ID });
+            if (prod) {
+              await UPDATE(Products)
+                .set({ unitsInStock: prod.unitsInStock + item.quantity })
+                .where({ ID: item.product_ID });
+            }
+          }
+          
+          if (incoming.status === 'DELETED') {
+            // Soft-delete order items too
+            await UPDATE(OrderItems).set({ isDeleted: true }).where({ order_ID: beforeUpdate.ID });
+          }
+        }
       }
 
-      // If items lists is updated, manage stock deduction & totals recalculation
-      if (incoming.items) {
+      // 3. If items list is updated (only allowed when NEW), manage stock deduction & totals recalculation
+      if (incoming.items && beforeUpdate.status === 'NEW' && !transitioningToCancelledOrDeleted) {
         // Restore old items stock first
         const oldItems = await SELECT.from(OrderItems).where({ order_ID: beforeUpdate.ID, isDeleted: false });
         for (const oldItem of oldItems) {
@@ -502,7 +552,7 @@ module.exports = cds.service.impl(async function() {
 
         // Check duplicate
         await checkDuplicateOrder(req, incoming.customer_ID || beforeUpdate.customer_ID, incoming.orderDate || beforeUpdate.orderDate, incoming.items, beforeUpdate.ID);
-      } else {
+      } else if (beforeUpdate.status === 'NEW' && !transitioningToCancelledOrDeleted) {
         // If freight is updated without items
         if (incoming.freight !== undefined) {
           const sub = parseFloat(beforeUpdate.subtotal) || 0;

@@ -131,7 +131,7 @@ Use the endpoints below to perform write transactions on Products and Orders.
 
 npx cds build --production
 npx mbt build
-cf login -a <api-endpoint>
+cf login -a https://api.cf.ap21.hana.ondemand.com
 cf deploy mta_archives/zsale-northwind_1.0.0.mtar
 
 {
