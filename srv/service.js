@@ -430,21 +430,23 @@ module.exports = cds.service.impl(async function() {
     delete incoming.totalAmount;
 
     for (const beforeUpdate of records) {
-      // Completed/Cancelled/Deleted cannot be edited
-      if (beforeUpdate.status === 'COMPLETED' || beforeUpdate.status === 'CANCELLED' || beforeUpdate.status === 'DELETED') {
+      // Completed/Deleted cannot be edited at all
+      if (beforeUpdate.status === 'COMPLETED' || beforeUpdate.status === 'DELETED') {
         req.error(400, `Cannot edit order because it is already ${beforeUpdate.status}.`);
         return;
       }
 
-      // Check if trying to update fields other than status while in PROCESSING state
-      if (beforeUpdate.status === 'PROCESSING') {
-        const allowedFieldsInProcessing = ['status'];
-        const incomingFields = Object.keys(incoming).filter(k => !k.startsWith('_'));
-        const hasDisallowedFields = incomingFields.some(f => !allowedFieldsInProcessing.includes(f));
-        
-        if (hasDisallowedFields) {
-          req.error(400, 'When an order is PROCESSING, you can only update its status. Other fields cannot be modified.');
+      // PROCESSING and CANCELLED orders can only have their status updated
+      if (beforeUpdate.status === 'PROCESSING' || beforeUpdate.status === 'CANCELLED') {
+        if (!incoming.status) {
+          req.error(400, `When an order is ${beforeUpdate.status}, you can only update its status.`);
           return;
+        }
+        // Strip all fields except status — only status change is allowed
+        for (const key of Object.keys(incoming)) {
+          if (key !== 'status') {
+            delete incoming[key];
+          }
         }
       }
 
@@ -452,8 +454,9 @@ module.exports = cds.service.impl(async function() {
       let transitioningToCancelledOrDeleted = false;
       if (incoming.status && incoming.status !== beforeUpdate.status) {
         const allowed = {
-          'NEW': ['PROCESSING', 'DELETED'],
-          'PROCESSING': ['COMPLETED', 'CANCELLED', 'DELETED']
+          'NEW': ['PROCESSING', 'CANCELLED', 'DELETED'],
+          'PROCESSING': ['COMPLETED', 'CANCELLED', 'DELETED'],
+          'CANCELLED': ['NEW']
         };
         if (!allowed[beforeUpdate.status]?.includes(incoming.status)) {
           req.error(400, `Status transition from ${beforeUpdate.status} to ${incoming.status} is not allowed.`);
@@ -484,6 +487,23 @@ module.exports = cds.service.impl(async function() {
           if (incoming.status === 'DELETED') {
             // Soft-delete order items too
             await UPDATE(OrderItems).set({ isDeleted: true }).where({ order_ID: beforeUpdate.ID });
+          }
+        }
+
+        // When reactivating a CANCELLED order back to NEW, re-deduct stock
+        if (beforeUpdate.status === 'CANCELLED' && incoming.status === 'NEW') {
+          const oldItems = await SELECT.from(OrderItems).where({ order_ID: beforeUpdate.ID, isDeleted: false });
+          for (const item of oldItems) {
+            const prod = await SELECT.one.from(Products).where({ ID: item.product_ID });
+            if (prod) {
+              if (item.quantity > prod.unitsInStock) {
+                req.error(400, `Cannot reactivate order: Insufficient stock for product '${prod.name}'. Required: ${item.quantity}, Available: ${prod.unitsInStock}`);
+                return;
+              }
+              await UPDATE(Products)
+                .set({ unitsInStock: prod.unitsInStock - item.quantity })
+                .where({ ID: item.product_ID });
+            }
           }
         }
       }
