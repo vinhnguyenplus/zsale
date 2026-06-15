@@ -1,6 +1,6 @@
 # Enterprise SAP CAP + Fiori Elements Northwind Sandbox
 
-A professional-grade clone of the Northwind database architecture utilizing **SAP Cloud Application Programming Model (Node.js)**, **SQLite**, and **OData V2** via adapter proxy. It is pre-seeded with **50,000 corporate records** (10,000 per entity) to simulate a high-performance production database for learning and query load-testing.
+A professional-grade clone of the Northwind database architecture utilizing **SAP Cloud Application Programming Model (Node.js)**, **SQLite**, and **OData V2** via adapter proxy. It is pre-seeded with **100 Categories, 100 Products, 100 Customers, 10 Orders, and 15 OrderItems**.
 
 ## Architecture Overview
 
@@ -45,7 +45,7 @@ npm install
 ```
 
 ### 2. Auto-Seeding & Deploy
-When the server starts, the database is checked. If it does not exist, the seeding script executes automatically to generate **10,000 rows** for each entity, then deploys the tables:
+When the server starts, the database is checked. If it does not exist, the seeding script generates **100 Categories, 100 Products, 100 Customers, and 10 Orders**. Each order contains one or two existing products:
 ```bash
 npx cds deploy
 ```
@@ -125,7 +125,7 @@ Use the endpoints below to perform write transactions on Products and Orders.
 ## Performance Optimization Notes
 
 1. **Indexes**: In `db/schema.cds`, indexes are explicitly declared on high-filter columns such as `Products.name`, `Products.unitPrice`, `Customers.companyName`, `Customers.country`, and `Orders.orderDate`.
-2. **Server-Side Paging**: SAP Fiori Elements automatically appends `$top=30` and `$skip=0` to grid queries, resulting in sub-10ms response times despite a 10,000-record dataset.
+2. **Server-Side Paging**: SAP Fiori Elements automatically appends `$top=30` and `$skip=0` to grid queries.
 3. **Transactional Drafts**: Enabled on transactional entities (`Products`, `Orders`) via `@odata.draft.enabled` to support draft-locking mechanisms for UI state persistence.
 
 

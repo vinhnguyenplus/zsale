@@ -24,6 +24,7 @@
           "UNITSINSTOCK",
           "UNITSONORDER",
           "REORDERLEVEL",
+          "CRITICALITY",
           "DISCONTINUED",
           "ISDELETED",
           "CATEGORY_ID"
@@ -42,6 +43,7 @@
         "UNITSINSTOCK": "unitsInStock",
         "UNITSONORDER": "unitsOnOrder",
         "REORDERLEVEL": "reorderLevel",
+        "CRITICALITY": "criticality",
         "DISCONTINUED": "discontinued",
         "ISDELETED": "isDeleted",
         "CATEGORY_ID": "category_ID"

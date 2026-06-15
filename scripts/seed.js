@@ -80,21 +80,24 @@ function runSeeding(force = false) {
     return;
   }
 
-  console.log('[Seed] Starting large-scale dummy data generation (10,000 records per entity)...');
+  const categoryCount = 100;
+  const productCount = 100;
+  const customerCount = 100;
+  const orderCount = 10;
+
+  console.log('[Seed] Generating 100 Categories, 100 Products, 100 Customers, and 10 Orders...');
   fs.mkdirSync(dataDir, { recursive: true });
 
-  const recordCount = 10000;
   const defaultDate = '2026-05-23T15:00:00Z';
   const defaultUser = 'anonymous';
 
   // 1. Generate Categories
   console.log('[Seed] Generating Categories...');
-  const categories = [];
   const catIds = [];
   const catStream = fs.createWriteStream(catFile, { encoding: 'utf8' });
   catStream.write('ID,createdAt,createdBy,modifiedAt,modifiedBy,name,description,isDeleted\n');
 
-  for (let i = 0; i < recordCount; i++) {
+  for (let i = 0; i < categoryCount; i++) {
     const id = uuid();
     const prefix = categoryPrefixes[i % categoryPrefixes.length];
     const suffix = categorySuffixes[(i + Math.floor(i / categoryPrefixes.length)) % categorySuffixes.length];
@@ -111,9 +114,9 @@ function runSeeding(force = false) {
   console.log('[Seed] Generating Products...');
   const productsList = []; // stores {ID, unitPrice}
   const prodStream = fs.createWriteStream(prodFile, { encoding: 'utf8' });
-  prodStream.write('ID,createdAt,createdBy,modifiedAt,modifiedBy,productNumber,name,unitPrice,unitsInStock,unitsOnOrder,reorderLevel,discontinued,isDeleted,category_ID\n');
+  prodStream.write('ID,createdAt,createdBy,modifiedAt,modifiedBy,productNumber,name,unitPrice,unitsInStock,unitsOnOrder,reorderLevel,criticality,discontinued,isDeleted,category_ID\n');
 
-  for (let i = 0; i < recordCount; i++) {
+  for (let i = 0; i < productCount; i++) {
     const id = uuid();
     const productNumber = 11 + i;
     const prefix = productPrefixes[i % productPrefixes.length];
@@ -125,11 +128,16 @@ function runSeeding(force = false) {
     const unitsInStock = (i % 5) === 0 ? Math.floor(Math.random() * 10) : Math.floor(Math.random() * 500) + 10; // make some low-stock products to show criticality
     const unitsOnOrder = (i % 7) === 0 ? Math.floor(Math.random() * 100) : 0;
     const reorderLevel = 10 + (i % 4) * 5;
+    const criticality = unitsInStock <= reorderLevel
+      ? 1
+      : unitsInStock < reorderLevel + 10
+        ? 2
+        : 3;
     const discontinued = (i % 25) === 0; // 4% discontinued
-    const category_ID = catIds[i % recordCount]; // 1:1 mapping or random from list
+    const category_ID = catIds[i % categoryCount];
 
     productsList.push({ ID: id, name, unitPrice });
-    prodStream.write(`${id},${defaultDate},${defaultUser},${defaultDate},${defaultUser},${productNumber},${escapeCSV(name)},${unitPrice},${unitsInStock},${unitsOnOrder},${reorderLevel},${discontinued},false,${category_ID}\n`);
+    prodStream.write(`${id},${defaultDate},${defaultUser},${defaultDate},${defaultUser},${productNumber},${escapeCSV(name)},${unitPrice},${unitsInStock},${unitsOnOrder},${reorderLevel},${criticality},${discontinued},false,${category_ID}\n`);
   }
   prodStream.end();
 
@@ -140,7 +148,7 @@ function runSeeding(force = false) {
   const custStream = fs.createWriteStream(custFile, { encoding: 'utf8' });
   custStream.write('ID,createdAt,createdBy,modifiedAt,modifiedBy,customerID,companyName,contactName,contactTitle,address,city,postalCode,country,phone,email,status,isDeleted\n');
 
-  for (let i = 0; i < recordCount; i++) {
+  for (let i = 0; i < customerCount; i++) {
     const id = uuid();
     const prefix = companyPrefixes[i % companyPrefixes.length];
     const middle = companyMiddles[(i + Math.floor(i / companyPrefixes.length)) % companyMiddles.length];
@@ -173,16 +181,15 @@ function runSeeding(force = false) {
   // 4. Generate Orders (and OrderItems later)
   console.log('[Seed] Generating Orders and OrderItems...');
   const employeeNames = ['Nancy Davolio', 'Andrew Fuller', 'Janet Leverling', 'Margaret Peacock', 'Steven Buchanan', 'Michael Suyama', 'Robert King', 'Laura Callahan', 'Anne Dodsworth'];
-  const orderIds = [];
   const ordersList = [];
   
   // Let's create realistic dates in the last 2 years
   const nowMs = new Date('2026-05-23T15:00:00Z').getTime();
 
-  for (let i = 0; i < recordCount; i++) {
+  for (let i = 0; i < orderCount; i++) {
     const id = uuid();
     const orderNumber = 10248 + i;
-    const custIdx = i % recordCount;
+    const custIdx = i % customerCount;
     const customer_ID = customerIds[custIdx];
     const custInfo = customersData[custIdx];
 
@@ -205,30 +212,35 @@ function runSeeding(force = false) {
     const shipCity = custInfo.city;
     const shipCountry = custInfo.country;
 
-    // Financial calculation for seed orders
-    const productIdx = i % recordCount;
-    const prod = productsList[productIdx];
-    const quantity = 1 + (i % 50); // quantity 1 to 50
-    const hasDiscount = (i % 10) === 0;
-    const discount = hasDiscount ? 0.1 : 0.0; // 10% discount max (under 50%)
-    
-    const itemUnitPrice = prod.unitPrice;
-    const itemSubtotal = parseFloat((quantity * itemUnitPrice * (1 - discount)).toFixed(2));
-    const orderSubtotal = itemSubtotal;
+    // Alternate between one and two existing products per order.
+    const itemCount = i % 2 === 0 ? 1 : 2;
+    const items = [];
+    let orderSubtotal = 0;
+    for (let itemIndex = 0; itemIndex < itemCount; itemIndex++) {
+      const productIdx = (i * 2 + itemIndex) % productCount;
+      const prod = productsList[productIdx];
+      const quantity = 1 + ((i + itemIndex) % 5);
+      const discount = (i + itemIndex) % 5 === 0 ? 0.1 : 0;
+      const itemSubtotal = quantity * prod.unitPrice * (1 - discount);
+
+      items.push({
+        product_ID: prod.ID,
+        quantity,
+        unitPrice: prod.unitPrice,
+        discount
+      });
+      orderSubtotal += itemSubtotal;
+    }
+
+    orderSubtotal = parseFloat(orderSubtotal.toFixed(2));
     const tax = parseFloat((orderSubtotal * 0.10).toFixed(2));
     const totalAmount = parseFloat((orderSubtotal + tax + freight).toFixed(2));
     const status = daysAgo > 30 ? 'COMPLETED' : 'NEW';
 
-    orderIds.push(id);
     ordersList.push({
       id, orderNumber, orderDate, requiredDate, shippedDateVal, freight, employeeName, shipName, shipAddress, shipCity, shipCountry, customer_ID,
       status, subtotal: orderSubtotal, tax, totalAmount,
-      item: {
-        product_ID: prod.ID,
-        quantity,
-        unitPrice: itemUnitPrice,
-        discount
-      }
+      items
     });
   }
 
@@ -243,14 +255,17 @@ function runSeeding(force = false) {
   // Write OrderItems
   const itemStream = fs.createWriteStream(itemFile, { encoding: 'utf8' });
   itemStream.write('ID,createdAt,createdBy,modifiedAt,modifiedBy,isDeleted,order_ID,product_ID,quantity,unitPrice,discount\n');
-  for (let i = 0; i < recordCount; i++) {
-    const o = ordersList[i];
-    const itemId = uuid();
-    itemStream.write(`${itemId},${defaultDate},${defaultUser},${defaultDate},${defaultUser},false,${o.id},${o.item.product_ID},${o.item.quantity},${o.item.unitPrice},${o.item.discount}\n`);
+  let orderItemCount = 0;
+  for (const order of ordersList) {
+    for (const item of order.items) {
+      const itemId = uuid();
+      itemStream.write(`${itemId},${defaultDate},${defaultUser},${defaultDate},${defaultUser},false,${order.id},${item.product_ID},${item.quantity},${item.unitPrice},${item.discount}\n`);
+      orderItemCount++;
+    }
   }
   itemStream.end();
 
-  console.log(`[Seed] Successfully generated 50,000 records across 5 CSV files in db/data/!`);
+  console.log(`[Seed] Generated ${categoryCount} Categories, ${productCount} Products, ${customerCount} Customers, ${orderCount} Orders, and ${orderItemCount} OrderItems.`);
 }
 
 // If run directly via node scripts/seed.js
