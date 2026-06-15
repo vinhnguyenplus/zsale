@@ -18,6 +18,7 @@ entity Products : managed {
   unitsInStock : Integer @title: 'Units In Stock';
   unitsOnOrder : Integer @title: 'Units On Order';
   reorderLevel : Integer @title: 'Reorder Level';
+  criticality : Integer not null default 0 @title: 'Criticality' @assert.range: [0, 3];
   discontinued : Boolean @title: 'Discontinued';
   isDeleted : Boolean default false @title: 'Is Deleted';
   category : Association to Categories @title: 'Category';

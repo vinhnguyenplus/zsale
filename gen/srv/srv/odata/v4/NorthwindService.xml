@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="NorthwindService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <Annotation Term="Core.Links">
@@ -55,6 +58,7 @@
         <Property Name="unitsInStock" Type="Edm.Int32"/>
         <Property Name="unitsOnOrder" Type="Edm.Int32"/>
         <Property Name="reorderLevel" Type="Edm.Int32"/>
+        <Property Name="criticality" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
         <Property Name="discontinued" Type="Edm.Boolean"/>
         <Property Name="isDeleted" Type="Edm.Boolean" DefaultValue="false"/>
         <NavigationProperty Name="category" Type="NorthwindService.Categories" Partner="products">
@@ -62,7 +66,6 @@
         </NavigationProperty>
         <Property Name="category_ID" Type="Edm.Guid"/>
         <NavigationProperty Name="orderItems" Type="Collection(NorthwindService.OrderItems)" Partner="product"/>
-        <Property Name="criticality" Type="Edm.Int32"/>
       </EntityType>
       <EntityType Name="Categories">
         <Key>
@@ -268,6 +271,9 @@
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="reorderLevel"/>
                 </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="criticality"/>
+                </Record>
               </Collection>
             </PropertyValue>
           </Record>
@@ -327,6 +333,11 @@
       <Annotations Target="NorthwindService.Products/reorderLevel">
         <Annotation Term="Common.Label" String="Reorder Level"/>
       </Annotations>
+      <Annotations Target="NorthwindService.Products/criticality">
+        <Annotation Term="Common.Label" String="Criticality"/>
+        <Annotation Term="Validation.Minimum" Int="0"/>
+        <Annotation Term="Validation.Maximum" Int="3"/>
+      </Annotations>
       <Annotations Target="NorthwindService.Products/discontinued">
         <Annotation Term="Common.Label" String="Discontinued"/>
       </Annotations>
@@ -357,9 +368,6 @@
           </Record>
         </Annotation>
         <Annotation Term="Common.Label" String="Category"/>
-      </Annotations>
-      <Annotations Target="NorthwindService.Products/criticality">
-        <Annotation Term="Core.Computed" Bool="true"/>
       </Annotations>
       <Annotations Target="NorthwindService.Categories">
         <Annotation Term="UI.HeaderInfo">

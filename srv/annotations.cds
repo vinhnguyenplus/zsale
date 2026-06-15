@@ -91,18 +91,11 @@ annotate NorthwindService.Products with @(
     Data: [
       { Value: unitsInStock },
       { Value: unitsOnOrder },
-      { Value: reorderLevel }
+      { Value: reorderLevel },
+      { Value: criticality }
     ]
   }
 );
-
-// Add virtual criticality field/calculation logic to service or handle it via UI annotations.
-// Since CAP supports calculated fields, we can add a criticality field in CDS or service.
-// Let's define the criticality field in service.cds or handle it.
-// To keep it simple, we can add a virtual field to Products in schema.cds or srv/service.cds.
-// Let's add it to srv/service.cds:
-// entity Products as select from my.Products { *, case when unitsInStock <= reorderLevel then 1 when unitsInStock > reorderLevel and unitsInStock < 100 then 2 else 3 end as criticality : Integer }
-// Let's update the annotations to reflect this.
 
 // Text arrangements and Value Help for Products
 annotate NorthwindService.Products with {

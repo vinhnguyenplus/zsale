@@ -125,7 +125,7 @@
                                                 <core:Item key="NEW" text="NEW" />
                                                 <core:Item key="PROCESSING" text="PROCESSING" />
                                                 <core:Item key="COMPLETED" text="COMPLETED" />
-                                                <core:Item key="CANCELLED" text="CANCELLED" />
+                                                <core:Item key="CANCELED" text="CANCELED" />
                                             </ComboBox>
                                         </VBox>
                                         <VBox>

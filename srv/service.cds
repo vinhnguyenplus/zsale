@@ -1,14 +1,7 @@
 using { sap.cap.northwind as my } from '../db/schema';
 
 service NorthwindService {
-  entity Products as projection on my.Products {
-    *,
-    case
-      when unitsInStock <= reorderLevel then 1
-      when unitsInStock > reorderLevel and unitsInStock < (reorderLevel + 10) then 2
-      else 3
-    end as criticality : Integer
-  };
+  entity Products as projection on my.Products;
 
   entity Categories as projection on my.Categories;
   entity Customers as projection on my.Customers;

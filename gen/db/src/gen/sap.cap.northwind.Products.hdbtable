@@ -10,6 +10,7 @@ COLUMN TABLE sap_cap_northwind_Products (
   unitsInStock INTEGER,
   unitsOnOrder INTEGER,
   reorderLevel INTEGER,
+  criticality INTEGER NOT NULL DEFAULT 0,
   discontinued BOOLEAN,
   isDeleted BOOLEAN DEFAULT FALSE,
   category_ID NVARCHAR(36),

@@ -124,32 +124,32 @@ module.exports = cds.service.impl(async function() {
   }
 
   // Intercept delete and turn it into an update isDeleted = true
-  this.on('DELETE', '*', async (req, next) => {
+  async function softDelete(req) {
     const entity = req.target;
-    if (entity && entity.elements && entity.elements.isDeleted) {
-      const whereClause = extractSafeWhereClause(req);
-      if (!whereClause) {
-        return req.error(400, 'Delete request must specify a valid ID to prevent mass deletion.');
-      }
-
-      const db = await cds.connect.to('db');
-      const updateData = { isDeleted: true };
-      // Check if this is an Orders entity (could be service name or DB name)
-      const entityName = entity.name || '';
-      if (entityName.includes('Orders') && !entityName.includes('OrderItems')) {
-        updateData.status = 'DELETED';
-        updateData.subtotal = 0;
-        updateData.tax = 0;
-        updateData.totalAmount = 0;
-      }
-      const affectedRows = await db.run(
-        UPDATE(entity).set(updateData).where(whereClause)
-      );
-      // Return a count so OData knows the operation succeeded
-      return affectedRows;
+    const whereClause = extractSafeWhereClause(req);
+    if (!whereClause) {
+      return req.error(400, 'Delete request must specify a valid ID to prevent mass deletion.');
     }
-    return next();
-  });
+
+    const updateData = { isDeleted: true };
+    const entityName = entity.name || '';
+    if (entityName.includes('Orders') && !entityName.includes('OrderItems')) {
+      updateData.status = 'DELETED';
+      updateData.subtotal = 0;
+      updateData.tax = 0;
+      updateData.totalAmount = 0;
+    }
+
+    return req.tx.run(
+      UPDATE(entity).set(updateData).where(whereClause)
+    );
+  }
+
+  // Register explicitly so DELETE from both OData V2 and V4 cannot fall
+  // through to CAP's default physical-delete handler.
+  for (const entity of [Products, Categories, Customers, Orders, OrderItems]) {
+    this.on('DELETE', entity, softDelete);
+  }
 
   // Action to restore all dummy data
   this.on('resetDummyData', async () => {
@@ -165,7 +165,7 @@ module.exports = cds.service.impl(async function() {
   // 2. PRODUCT VALIDATIONS
   // -----------------------------------------------------------------
   this.before(['CREATE', 'UPDATE'], 'Products', async (req) => {
-    const { ID, name, unitPrice, unitsInStock, category_ID } = req.data;
+    const { ID, name, unitPrice, unitsInStock, criticality, category_ID } = req.data;
 
     // Product Name check
     if (name !== undefined) {
@@ -211,6 +211,16 @@ module.exports = cds.service.impl(async function() {
       }
       if (!Number.isInteger(Number(unitsInStock))) {
         req.error(400, 'Units In Stock must be an integer.', 'unitsInStock');
+      }
+    }
+
+    // criticality validation
+    if (Object.hasOwn(req.data, 'criticality')) {
+      const criticalityValue = Number(criticality);
+      if (criticality === null || !Number.isInteger(criticalityValue) || criticalityValue < 0 || criticalityValue > 3) {
+        req.error(400, 'Criticality must be an integer between 0 and 3.', 'criticality');
+      } else {
+        req.data.criticality = criticalityValue;
       }
     }
 
@@ -436,8 +446,8 @@ module.exports = cds.service.impl(async function() {
         return;
       }
 
-      // PROCESSING and CANCELLED orders can only have their status updated
-      if (beforeUpdate.status === 'PROCESSING' || beforeUpdate.status === 'CANCELLED') {
+      // PROCESSING and canceled orders can only have their status updated
+      if (beforeUpdate.status === 'PROCESSING' || beforeUpdate.status === 'CANCELLED' || beforeUpdate.status === 'CANCELED') {
         if (!incoming.status) {
           req.error(400, `When an order is ${beforeUpdate.status}, you can only update its status.`);
           return;
@@ -454,16 +464,17 @@ module.exports = cds.service.impl(async function() {
       let transitioningToCancelledOrDeleted = false;
       if (incoming.status && incoming.status !== beforeUpdate.status) {
         const allowed = {
-          'NEW': ['PROCESSING', 'CANCELLED', 'DELETED'],
-          'PROCESSING': ['COMPLETED', 'CANCELLED', 'DELETED'],
-          'CANCELLED': ['NEW']
+          'NEW': ['PROCESSING', 'CANCELLED', 'CANCELED', 'DELETED'],
+          'PROCESSING': ['COMPLETED', 'CANCELLED', 'CANCELED', 'DELETED'],
+          'CANCELLED': ['NEW'],
+          'CANCELED': ['NEW']
         };
         if (!allowed[beforeUpdate.status]?.includes(incoming.status)) {
           req.error(400, `Status transition from ${beforeUpdate.status} to ${incoming.status} is not allowed.`);
           return;
         }
 
-        if (incoming.status === 'CANCELLED' || incoming.status === 'DELETED') {
+        if (incoming.status === 'CANCELLED' || incoming.status === 'CANCELED' || incoming.status === 'DELETED') {
           transitioningToCancelledOrDeleted = true;
           
           if (incoming.status === 'DELETED') {
@@ -490,8 +501,8 @@ module.exports = cds.service.impl(async function() {
           }
         }
 
-        // When reactivating a CANCELLED order back to NEW, re-deduct stock
-        if (beforeUpdate.status === 'CANCELLED' && incoming.status === 'NEW') {
+        // When reactivating a canceled order back to NEW, re-deduct stock
+        if ((beforeUpdate.status === 'CANCELLED' || beforeUpdate.status === 'CANCELED') && incoming.status === 'NEW') {
           const oldItems = await SELECT.from(OrderItems).where({ order_ID: beforeUpdate.ID, isDeleted: false });
           for (const item of oldItems) {
             const prod = await SELECT.one.from(Products).where({ ID: item.product_ID });

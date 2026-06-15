@@ -195,6 +195,18 @@
           "@title": "Reorder Level",
           "type": "cds.Integer"
         },
+        "criticality": {
+          "@title": "Criticality",
+          "@assert.range": [
+            0,
+            3
+          ],
+          "type": "cds.Integer",
+          "notNull": true,
+          "default": {
+            "val": 0
+          }
+        },
         "discontinued": {
           "@title": "Discontinued",
           "type": "cds.Boolean"
@@ -826,6 +838,11 @@
           "Value": {
             "=": "reorderLevel"
           }
+        },
+        {
+          "Value": {
+            "=": "criticality"
+          }
         }
       ],
       "projection": {
@@ -833,76 +850,7 @@
           "ref": [
             "sap.cap.northwind.Products"
           ]
-        },
-        "columns": [
-          "*",
-          {
-            "xpr": [
-              "case",
-              "when",
-              {
-                "ref": [
-                  "unitsInStock"
-                ]
-              },
-              "<=",
-              {
-                "ref": [
-                  "reorderLevel"
-                ]
-              },
-              "then",
-              {
-                "val": 1
-              },
-              "when",
-              {
-                "ref": [
-                  "unitsInStock"
-                ]
-              },
-              ">",
-              {
-                "ref": [
-                  "reorderLevel"
-                ]
-              },
-              "and",
-              {
-                "ref": [
-                  "unitsInStock"
-                ]
-              },
-              "<",
-              {
-                "xpr": [
-                  {
-                    "ref": [
-                      "reorderLevel"
-                    ]
-                  },
-                  "+",
-                  {
-                    "val": 10
-                  }
-                ]
-              },
-              "then",
-              {
-                "val": 2
-              },
-              "else",
-              {
-                "val": 3
-              },
-              "end"
-            ],
-            "as": "criticality",
-            "cast": {
-              "type": "cds.Integer"
-            }
-          }
-        ]
+        }
       },
       "elements": {
         "createdAt": {
@@ -991,6 +939,18 @@
           "@title": "Reorder Level",
           "type": "cds.Integer"
         },
+        "criticality": {
+          "@title": "Criticality",
+          "@assert.range": [
+            0,
+            3
+          ],
+          "type": "cds.Integer",
+          "notNull": true,
+          "default": {
+            "val": 0
+          }
+        },
         "discontinued": {
           "@title": "Discontinued",
           "type": "cds.Boolean"
@@ -1055,10 +1015,6 @@
               ]
             }
           ]
-        },
-        "criticality": {
-          "@Core.Computed": true,
-          "type": "cds.Integer"
         }
       }
     },
