@@ -95,9 +95,9 @@ module.exports = cds.service.impl(async function() {
   this.before('READ', '*', (req) => {
     const entity = req.target;
     if (entity && entity.elements && entity.elements.isDeleted) {
-      // Allow deleted Orders to be visible in the UI with status 'DELETED'
+      // Allow deleted Products and Orders to remain visible with isDeleted = true.
       const entityName = entity.name || '';
-      if (entityName.includes('Orders') && !entityName.includes('OrderItems')) {
+      if (entityName.includes('Products') || (entityName.includes('Orders') && !entityName.includes('OrderItems'))) {
         return;
       }
       req.query.where({ isDeleted: false });
